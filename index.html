@@ -61,6 +61,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Mac被注入文件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/08/Mac被注入文件/" class="article-date">
+  <time datetime="2015-09-08T05:58:46.000Z" itemprop="datePublished">2015-09-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/08/Mac被注入文件/">Mac被注入文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="mac_被注入了文件">mac 被注入了文件</h1><h2 id="经过">经过</h2><ul>
+<li>是这样的：前段时间使用mac打开浏览器访问网页，页面加载非常慢，不到一会儿，整个页面就卡住不动了。打开chrome控制台，查看network，发现了上千个请求，且在不断的增加，我想应该是被脚本注入了。不光是页面卡主了，点击页面上的任何链接，都会跳转到一个页面: mackeeper, 类似弹窗广告。紧接着，浏览器就崩溃了。查看代码，发现，页面上被注入了一个js脚本。打开这个文件，心都凉了，里面各种setInterval，源源不断的发出各种请求。。。浏览器根本扛不住啊。</li>
+<li>排除了chrome插件，不知道是怎么注入的。</li>
+<li>后来谷歌一下，发现一款软件，可以用来扫描恶意插件：<a href="http://www.adwaremedic.com/index.php" target="_blank" rel="external">AdwareMedic</a></li>
+<li>安装后扫描，发现了猫腻。原来在/Library/下面新增了一些配置文件，不过具体的配置的工作原理，我不明白。大家可以参考：<a href="http://www.tanhao.me/talk/1287.html/" target="_blank" rel="external">Mac OSX的开机启动配置</a>.</li>
+</ul>
+<h2 id="教训">教训</h2><ul>
+<li>对需要sudo安装的软件，一定要谨慎。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/09/08/Mac被注入文件/" data-id="cieay6jzs0003gwcfr416keh6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Mac终端使用Sumblime-Text打开目录或文件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/09/08/Mac终端使用Sumblime-Text打开目录或文件/" class="article-date">
@@ -93,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/08/Mac终端使用Sumblime-Text打开目录或文件/" data-id="cieavjq6c0000flcff82id9g5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/08/Mac终端使用Sumblime-Text打开目录或文件/" data-id="cieay6jz60000gwcfjlq5jpkn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -129,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/08/test/" data-id="cieavjq7e0001flcfrfsicqzf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/08/test/" data-id="cieay6jzn0001gwcfmp44vijv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,7 +221,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/08/hello-world/" data-id="cieavjq7h0002flcffo5zdvr8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/08/hello-world/" data-id="cieay6jzq0002gwcfkufertkh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -192,14 +239,28 @@
     
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Mac/" style="font-size: 10px;">Mac</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -209,6 +270,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/09/08/Mac被注入文件/">Mac被注入文件</a>
+          </li>
         
           <li>
             <a href="/2015/09/08/Mac终端使用Sumblime-Text打开目录或文件/">Mac终端使用Sumblime Text打开目录或文件</a>
