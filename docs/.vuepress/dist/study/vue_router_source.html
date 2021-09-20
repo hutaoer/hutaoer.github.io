@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue-router 源码阅读笔记 | 逗逼码农</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?97584138af9a81f074d821256641e300";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <meta name="description" content="提升能力，降低欲望；乐观幽默，自律坦然">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.842ea6ec.js" as="script"><link rel="preload" href="/assets/js/2.dc0afc93.js" as="script"><link rel="preload" href="/assets/js/43.30fc102d.js" as="script"><link rel="prefetch" href="/assets/js/10.ad4c898c.js"><link rel="prefetch" href="/assets/js/11.2f4bce0c.js"><link rel="prefetch" href="/assets/js/12.3f8a3dad.js"><link rel="prefetch" href="/assets/js/13.447f6ab2.js"><link rel="prefetch" href="/assets/js/14.3a7dbf8a.js"><link rel="prefetch" href="/assets/js/15.70e6a724.js"><link rel="prefetch" href="/assets/js/16.a27fdb8a.js"><link rel="prefetch" href="/assets/js/17.a1fa779a.js"><link rel="prefetch" href="/assets/js/18.cc193d8e.js"><link rel="prefetch" href="/assets/js/19.bffd9dc7.js"><link rel="prefetch" href="/assets/js/20.6fc84656.js"><link rel="prefetch" href="/assets/js/21.cd5509fe.js"><link rel="prefetch" href="/assets/js/22.0d062f4d.js"><link rel="prefetch" href="/assets/js/23.d7727e3b.js"><link rel="prefetch" href="/assets/js/24.545ca8ac.js"><link rel="prefetch" href="/assets/js/25.4b107582.js"><link rel="prefetch" href="/assets/js/26.d5e9e19d.js"><link rel="prefetch" href="/assets/js/27.19e76a6e.js"><link rel="prefetch" href="/assets/js/28.7073d99c.js"><link rel="prefetch" href="/assets/js/29.5414e31c.js"><link rel="prefetch" href="/assets/js/3.5ddc40d3.js"><link rel="prefetch" href="/assets/js/30.37e0aeb4.js"><link rel="prefetch" href="/assets/js/31.507d0cca.js"><link rel="prefetch" href="/assets/js/32.cacc2861.js"><link rel="prefetch" href="/assets/js/33.20c44cc0.js"><link rel="prefetch" href="/assets/js/34.26765c10.js"><link rel="prefetch" href="/assets/js/35.486f808f.js"><link rel="prefetch" href="/assets/js/36.0644b95f.js"><link rel="prefetch" href="/assets/js/37.4df0b2b4.js"><link rel="prefetch" href="/assets/js/38.6ec4b25f.js"><link rel="prefetch" href="/assets/js/39.ae1dedeb.js"><link rel="prefetch" href="/assets/js/4.2a5d96fc.js"><link rel="prefetch" href="/assets/js/40.e0101392.js"><link rel="prefetch" href="/assets/js/41.eeb486ab.js"><link rel="prefetch" href="/assets/js/42.0a91950d.js"><link rel="prefetch" href="/assets/js/44.617515b6.js"><link rel="prefetch" href="/assets/js/45.57e30b26.js"><link rel="prefetch" href="/assets/js/46.70000d22.js"><link rel="prefetch" href="/assets/js/47.23c0e54f.js"><link rel="prefetch" href="/assets/js/48.bd509340.js"><link rel="prefetch" href="/assets/js/5.fd255a4a.js"><link rel="prefetch" href="/assets/js/6.66b67ff0.js"><link rel="prefetch" href="/assets/js/7.041aceb2.js"><link rel="prefetch" href="/assets/js/8.9ff81af5.js"><link rel="prefetch" href="/assets/js/9.55491c9a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">逗逼码农</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>vue-router 源码阅读笔记</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/study/vue_router_source.html#mixin了一个方法" class="sidebar-link">mixin了一个方法</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/study/vue_router_source.html#route" class="sidebar-link">$route</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/study/vue_router_source.html#router-view" class="sidebar-link">router-view</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/study/vue_router_source.html#编码心得" class="sidebar-link">编码心得</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue-router-源码阅读笔记"><a href="#vue-router-源码阅读笔记" class="header-anchor">#</a> vue-router 源码阅读笔记</h1> <h2 id="mixin了一个方法"><a href="#mixin了一个方法" class="header-anchor">#</a> mixin了一个方法</h2> <ul><li>保证每个组件上，都能挂载<code>vue-router</code>的实例。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>Vue<span class="token punctuation">.</span><span class="token function">mixin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	<span class="token function">beforeCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="route"><a href="#route" class="header-anchor">#</a> $route</h2> <ul><li>定义<code>_route</code>属性，来实现响应式，使用<code>Vue</code>提供的方法。</li> <li><code>Vue.util.defineReactive(this,'_route', this.router.history.current)</code> <ul><li>需要测试下这个方法是否会触发更新，看下官网api</li></ul></li> <li>每次修改都是修改<code>_route</code>属性。 <code>history</code>上进行监听路由变化，每次变化后，重新赋值，实现<code>根实例</code>的更新。</li></ul> <h2 id="router-view"><a href="#router-view" class="header-anchor">#</a> router-view</h2> <ul><li>渲染的时候，需要做循环判断，不断的判断是否有父节点。</li> <li>从最外层开始渲染，一直到最内层。</li></ul> <h2 id="编码心得"><a href="#编码心得" class="header-anchor">#</a> 编码心得</h2> <ul><li>使用空对象的时候，使用<code>Object.create(null)</code>代替<code>{}</code>，<code>{}</code>会有<code>__proto__</code>，另外一个没有，性能更好更纯粹？</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.842ea6ec.js" defer></script><script src="/assets/js/2.dc0afc93.js" defer></script><script src="/assets/js/43.30fc102d.js" defer></script>
+  </body>
+</html>
