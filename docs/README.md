@@ -1,16 +1,73 @@
 ---
-home: true
-heroImage: /hero.png
-heroText: Hero 标题
-tagline: Hero 副标题
-actionText: 快速上手 →
-actionLink: /zh/guide/
-features:
-  - title: 简洁至上
-    details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-  - title: Vue驱动
-    details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-  - title: 高性能
-    details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
-footer: MIT Licensed | Copyright © 2018-present Evan You
+sidebar: auto
 ---
+
+# 积累与提升
+
+## [团队](/team)
+
+- [React 编码规范](/team/react_rules.md)
+- [团队周报模板](/team/report_template.md)
+- [代码审核规范](/team/code_review_rules.md)
+- [前端方案设计规范](/team/f2e_project_design_rules.md)
+- [团队管理实践](/team/how_to_manage_team.md)
+
+## [实践](/practice)
+
+- [App & Hybrid 常见问题](/practice/app_hybrid_problems.md)
+- [微信小程序 & webview 常见问题](/practice/wx_normal_problems.md)
+- [git 分支管理总结](/practice/git_branch_manage.md)
+- [puppeteer 实战总结](/practice/puppeteer_practice.md)
+- [mongodb 实战总结](/practice/mongodb_practice.md)
+- [Taro 2.0 商城项目总结](/practice/taro_2_mall.md)
+- [乐高搭建系统总结](/practice/lego.md)
+- [命令行工具开发总结](/practice/cli_tool.md)
+- [webpack4升级到5](/practice/upgrade_webpack4_to_5.md)
+
+## [学习](/study)
+- [TypeScript 学习笔记 —— 基础](/study/ts_note_basic.md)
+- [TypeScript 学习笔记 —— 高级](/study/ts_note_advanced.md)
+- [TypeScript 学习笔记 —— 实战](/study/ts_note_in_action.md)
+- [Node.js 学习笔记 ](/study/node_note.md)
+- [Node.js 学习笔记 —— 事件循环机制](/study/node_note_event.md)
+- [Node.js 学习笔记 —— 并发处理](/study/node_note_concurrency.md)
+- [MongoDB 学习笔记](/study/mongodb_note.md)
+- [Lighthouse 学习笔记](/study/lighthouse_note.md)
+- [puppeteer 学习笔记](/study/puppeteer_note.md)
+- [web性能优化](/study/web_performance_optimazition.md)
+- [eslint 学习笔记](/study/eslint_note.md)
+- [JavaScript 学习笔记](/study/javascript.md)
+- [Vue SSR 学习笔记](/study/vue_ssr.md)
+- [Vue CLI 2.0 源码阅读笔记](/study/vue_cli_2_source.md)
+- [Vue-Router 源码阅读笔记](/study/vue_router_source.md)
+- [Vue 文档阅读笔记](/study/vue_docs.md)
+- [Vuex 与 Redux 区别](/study/vuex_redux_diff.md)
+- [npm 学习笔记](/study/npm.md)
+- [MutationObserver 学习](/study/mutation_observer.md)
+- [Reflect 学习](/study/reflect.md)
+- [Proxy 学习](/study/proxy.md)
+- [设计模式 —— 观察者模式](/study/desgin_pattern_observer.md)
+- [设计模式 —— 发布-订阅模式](/study/desgin_pattern_publish_subscribe.md)
+- [React 文档学习笔记](/study/react.md)
+- [React 知识链路梳理](/study/react_note.md)
+- [React Hooks VS Vue Composition API](/study/react_hooks_vs_composition_api.md)
+- [JavaScript 中的继承实现](/study/javascript_inherit.md)
+- [prettier](/study/prettier.md)
+- [git rebase 和 git merge](/study/git_rebase_merge.md)
+- [webpack 学习笔记](/study/webpack.md)
+- [koa 中间件学习笔记](/study/koa_middleware.md)
+
+## [编码](/code)
+- [jsonp](/code/jsonp.md)
+- [ajax](/code/ajax.md)
+- [快速排序](/code/quick_sort.md)
+- [冒泡排序](/code/bubble_sort.md)
+- [节流](/code/debounce.md)
+- [防抖](/code/quick_sort)
+- [leecode 数组反转](/code/reverse_array)
+- [leecode 回文](/code/)
+- [leecode 求素数](/code/jsonp)
+
+
+## [随笔](/life)
+- [童言趣语](/life/boby_funny_words.md)
