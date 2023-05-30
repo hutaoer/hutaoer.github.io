@@ -24,6 +24,10 @@ sidebar: auto
 - [命令行工具开发总结](/practice/cli_tool.md)
 - [webpack4升级到5](/practice/upgrade_webpack4_to_5.md)
 
+## [跨端](/cross-platform)
+- [iOS 接入 Flutter 碰到的问题和解决方案](/cross-platform/flutter_ios_hybrid.md)
+- [Flutter](/cross-platform/flutter.md)
+
 ## [学习](/study)
 - [TypeScript 学习笔记 —— 基础](/study/ts_note_basic.md)
 - [TypeScript 学习笔记 —— 高级](/study/ts_note_advanced.md)
