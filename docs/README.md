@@ -9,11 +9,12 @@ sidebar: auto
 - [React 编码规范](/team/react_rules.md)
 - [团队周报模板](/team/report_template.md)
 - [代码审核规范](/team/code_review_rules.md)
-- [前端方案设计规范](/team/f2e_project_design_rules.md)
+- [前端方案评估规范](/team/f2e_project_design_rules.md)
 - [团队管理实践](/team/how_to_manage_team.md)
 
 ## [实践](/practice)
 
+- [小程序录音功能开发](/practice/wx_mini_record.md)
 - [App & Hybrid 常见问题](/practice/app_hybrid_problems.md)
 - [微信小程序 & webview 常见问题](/practice/wx_normal_problems.md)
 - [git 分支管理总结](/practice/git_branch_manage.md)
@@ -23,6 +24,10 @@ sidebar: auto
 - [乐高搭建系统总结](/practice/lego.md)
 - [命令行工具开发总结](/practice/cli_tool.md)
 - [webpack4升级到5](/practice/upgrade_webpack4_to_5.md)
+- [Taro 2.0 升级到 3.0 记录](/practice/upgrade_taro2_to_3.md)
+- [表单配置可视化实践](/practice/form_config_solution.md)
+- [微前端实践](/practice/micro_client.md)
+- [微信小程序 SaaS 化实践](/practice/wx_mini_saas.md)
 
 ## [跨端](/cross-platform)
 - [iOS 接入 Flutter 碰到的问题和解决方案](/cross-platform/flutter_ios_hybrid.md)
@@ -53,7 +58,7 @@ sidebar: auto
 - [设计模式 —— 观察者模式](/study/desgin_pattern_observer.md)
 - [设计模式 —— 发布-订阅模式](/study/desgin_pattern_publish_subscribe.md)
 - [React 文档学习笔记](/study/react.md)
-- [React 知识链路梳理](/study/react_note.md)
+- [React 知识点梳理](/study/react_note.md)
 - [React Hooks VS Vue Composition API](/study/react_hooks_vs_composition_api.md)
 - [JavaScript 中的继承实现](/study/javascript_inherit.md)
 - [prettier](/study/prettier.md)
@@ -72,6 +77,8 @@ sidebar: auto
 - [leecode 回文](/code/)
 - [leecode 求素数](/code/jsonp)
 
+## [想法](/open)
+- [基于地理位置的优惠信息共享](/idea/position_discount_share.md)
 
 ## [随笔](/life)
 - [童言趣语](/life/boby_funny_words.md)

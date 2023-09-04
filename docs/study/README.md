@@ -28,7 +28,7 @@ sidebar: auto
 - [设计模式 —— 观察者模式](/study/desgin_pattern_observer.md)
 - [设计模式 —— 发布-订阅模式](/study/desgin_pattern_publish_subscribe.md)
 - [React 文档学习笔记](/study/react.md)
-- [React 知识链路梳理](/study/react_note.md)
+- [React 知识点梳理](/study/react_note.md)
 - [React Hooks VS Vue Composition API](/study/react_hooks_vs_composition_api.md)
 - [JavaScript 中的继承实现](/study/javascript_inherit.md)
 - [prettier](/study/prettier.md)

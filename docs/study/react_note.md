@@ -2,7 +2,7 @@
 sidebar: auto
 ---
 
-# React 知识链路梳理
+# React 知识点梳理
 
 ## fiber机制
 * render 阶段是允许暂停、终止和重启的。 
@@ -279,7 +279,24 @@ const store = createStore(
 * 使用 redux-saga 中间件来创建更加复杂的异步 action。
 * 使用 redux-pack 中间件 dispatch 基于 Promise 的异步 Action。
 
+## 优化技巧
 
+### PureComponent、React.memo
+* 如果父组件发生状态更新，及时父组件传给子组件的`props`没有修改，也会引起子组件的渲染。
+* `PureComponent`是对类组件的 `Props` 和 `State` 进行浅比较，如果没有变化，则不会渲染组件。
+* `React.memo` 是对函数组件的 Props 进行浅比较。
+
+### shouldComponentUpdate
+* 使用`shouldComponentUpdate`会存在一些隐患。如果存在很多子孙组件，「找出所有子孙组件使用的属性」就会有很多工作量，也容易因为遗漏导致 bug，且会带来一定的维护成本。
+
+### useMemo、useCallback
+* 子组件接收的函数或`props`，每次都是新的引用，那么`PureComponent` 和 `React.memo` 优化就会失效。需要使用 `useMemo` 和 `useCallback` 来生成稳定值，并结合 `PureComponent` 或 `React.memo` 避免子组件重新 Render。
+* `useCallback` 是基于 `useMemo` 实现的，只是针对缓存函数。
+* `useMemo` 用于非常耗时的计算场景。
+
+### 节流、防抖
+* 节流，可以想象为水龙头放水，不能一直放任其流水，为了节约用水，改成每隔固定的间隔滴水。无论规定时间内，事件有无触发，都会按照固定频率触发。比如滚动时候，请求数据。窗口拖动时候，resize 事件。
+* 防抖，频繁触发的动作，在 n 秒内只执行一次。输入框不断的输入值，使用防抖节约请求。频繁点赞和取消，仅需获取最后一次的操作结果传递给服务端。
 
 
 

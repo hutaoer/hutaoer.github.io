@@ -237,7 +237,7 @@ function deploy(pageData) {
 ```
 
 ## 问题
-* 由于
+* 并发操作，需要加锁来控制。 
 
 ## 线上示例
 * 活动页：https://cdn.yizhitongapp.com/activity/1610516111116/index.html

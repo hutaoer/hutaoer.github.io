@@ -104,6 +104,7 @@ interface Calculate {
 
 ### interface 与 type 区别
 * 都可以描述一个对象或者函数
+* 类型不能重新开放类型以添加新的属性，而接口始终是可扩展的。
 
 #### type
 * `type` 可以声明基本类型别名，联合类型: `type AB = A | B`
@@ -112,6 +113,7 @@ interface Calculate {
 #### interface
 * 接口可以继承和实现
 * 接口可以进行声明合并
+* 可以向现有接口添加新的字段
 
 
 ## 类
@@ -152,7 +154,7 @@ z1.text = 'hello' // ok
 - 注意：类型断言是不够严谨的，如果某个类型的变量缺少一些接口中定义的属性，也不会报错。
 
 
-## 类型保护
+## 类型保护（守卫）
 
 - 类型保护是指缩小类型的范围，在一定的块级作用域内由编译器推导其类型，提示并规避不合法的操作。
 - 可以通过四种方式将代码类型范围缩小：`typeof， instanceof， in， 字面量类型`
@@ -174,6 +176,12 @@ function check(res: Success | Fail) {
   } else {
     // do something failed
   }
+}
+if(typeof Pet.fly === 'function') {
+  Pet.fly // ts(2339) 报错
+}
+if('fly' in Pet) {
+  Pet.fly() // ok
 }
 ```
 
