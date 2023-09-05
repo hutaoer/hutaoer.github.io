@@ -174,6 +174,37 @@ const n: {age:number} & {age:33} // n 只能赋值33
 * TypeScript 推荐我们尽可能的使用接口来规范我们的代码。
 * 类型别名在定义交叉类型、联合类型。
 
+## 类型守卫
+
+### 区分联合类型
+* `switch，if else`:处理联合类型或类型成员可枚举场景，或字面量恒等场景。
+* 字面量恒等，同上。
+* `typeof`：联合类型成员不可枚举，如字符串，数字等原子类型组成的组合。
+* `instanceof`：联合类型的成员为类的时候。
+* `in`：联合类型成员包含接口类型，且接口之间属性不同。
+* 自定义类型守卫：封装一个谓词函数。
+
+### 区别枚举类型
+
+### 失效的类型守卫
+* 即不能缩小类型范围的类型守卫，如下所示：
+```ts
+const getName = <T extends Dog | Cat>(animal:T) => {
+  if('wangwang' in T) {
+    return animal.wangwang
+  } else {
+    return animal.miaomiao
+  }
+}
+```
+* 需要改成`instanceof`或自定义谓词函数类判断。
+
+### 思考
+* 如何区分不同的接口类型？
+  - 使用联合类型
+  - 使用自定义类型，通过 is 来声明。
+  - 参考：https://cloud.tencent.com/developer/ask/sof/111097
+
 ## 索引
 * 索引类型可以让 TypeScript 编译器覆盖检测到使用了动态属性名的代码。
 

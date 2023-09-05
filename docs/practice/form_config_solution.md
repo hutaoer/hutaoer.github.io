@@ -4,25 +4,33 @@ sidebar: auto
 
 # 表单配置可视化实践
 
-<a name="p7rlX"></a>
 ## 1. 项目背景
-**真实世界受试者录入**<br />真实世界研究包含了：真实世界研究、真实世界证据和真实世界数据三大模块。其中的真实世界数据，是非常重要的一环。真实世界数据可以来源患者的病历，也可以来源一些随访问卷等。其中的问卷、病历或者是随访，其实都是一个个可视化表单，表单意味着信息的初始来源，是第一手数据的载体。
+* 真实世界研究包含了：真实世界研究、真实世界证据和真实世界数据三大模块。其中的真实世界数据，是非常重要的一环。真实世界数据可以来源患者的病历，也可以来源一些随访问卷等。其中的问卷、病历或者是随访，其实都是一个个可视化表单，表单意味着信息的初始来源，是第一手数据的载体。
 
-**现有CRF表单的痛点**<br />现阶段，我们系统内的OCR处理、病历打标、不良反应问卷和量表，都是通过写死一套套不同场景的表单来实现，复杂度高，工作量繁琐并且大量都是重复性操作。
+* 现阶段，我们系统内的OCR处理、病历打标、不良反应问卷和量表，都是通过写死一套套不同场景的表单来实现，复杂度高，工作量繁琐并且大量都是重复性操作。
 
-**公司现有表单场景部分截图**<br />![决策展示](https://cdn.nlark.com/yuque/0/2022/png/168170/1657173669722-a83965fe-71df-4808-8cf2-ea0e1acd2918.png#clientId=uf980f38c-c55c-4&from=paste&height=720&id=u5d976f99&originHeight=1440&originWidth=2560&originalType=binary&ratio=1&rotation=0&showTitle=true&size=14770974&status=done&style=stroke&taskId=u57c994a4-7cc4-45ae-a96f-a9d1281d63a&title=%E5%86%B3%E7%AD%96%E5%B1%95%E7%A4%BA&width=1280 "决策展示")<br />![病历打标](https://cdn.nlark.com/yuque/0/2022/png/168170/1657174429875-15c6cfe5-c7ca-408f-b4ed-09c33b5a9f2e.png#clientId=uf980f38c-c55c-4&from=paste&height=579&id=uf15db770&originHeight=1158&originWidth=2560&originalType=binary&ratio=1&rotation=0&showTitle=true&size=11878331&status=done&style=stroke&taskId=u3a29d813-602d-48c2-92a7-8316daf40e0&title=%E7%97%85%E5%8E%86%E6%89%93%E6%A0%87&width=1280 "病历打标")<br />![不良反应问卷-填写](https://cdn.nlark.com/yuque/0/2022/png/168170/1657174388536-136044bf-059e-4f9d-aef8-762b830eac3e.png#clientId=uf980f38c-c55c-4&from=paste&height=754&id=ue6b2a537&originHeight=2560&originWidth=1189&originalType=binary&ratio=1&rotation=0&showTitle=true&size=12197691&status=done&style=stroke&taskId=u8dbe23e4-fd68-41bd-8a8d-32d15a0c696&title=%E4%B8%8D%E8%89%AF%E5%8F%8D%E5%BA%94%E9%97%AE%E5%8D%B7-%E5%A1%AB%E5%86%99&width=350 "不良反应问卷-填写")![不良反应问卷-详情](https://cdn.nlark.com/yuque/0/2022/png/168170/1657174410048-bf54a593-7967-40e6-b494-4a97a03ab5ca.png#clientId=uf980f38c-c55c-4&from=paste&height=757&id=uda4d909b&originHeight=2560&originWidth=1183&originalType=binary&ratio=1&rotation=0&showTitle=true&size=9102777&status=done&style=stroke&taskId=u1e39f521-01a2-413a-b605-ec7670f085d&title=%E4%B8%8D%E8%89%AF%E5%8F%8D%E5%BA%94%E9%97%AE%E5%8D%B7-%E8%AF%A6%E6%83%85&width=350 "不良反应问卷-详情")
-<a name="kToeq"></a>
+* 业务现有表单场景部分截图
+  - 决策展示：
+  - ![决策展示](https://static.aistarfish.com/front-release/file/F2023090516302246700009580.1.png)
+  - 病历打标：
+  - ![病历打标](https://static.aistarfish.com/front-release/file/F2023090516382733400006407.2.png)
+  - 问卷填写：
+  - ![不良反应问卷-填写](https://static.aistarfish.com/front-release/file/F2023090516342941500004443.3.png)
 ## 2. 目标功能
 
 1. 实现一个可自定义配置的表单配置平台。
 2. 能支持内部系统应用场景如病历打标的表单配置，承载各个业务线的简单表单和问卷需求。
 3. 支持真实世界研究自定义复杂表单配置。
-<a name="qFs8N"></a>
+
 ## 3. 成果展示
-lego 线下：[https://lego.aistarfish.net/#/](https://lego.aistarfish.net/#/)<br />lego 线上：[https://lego.aistarfish.com/#/](https://lego.aistarfish.com/#/)<br />决策展示系统：[https://sfportal.aistarfish.net/bcresearch/show/#/csco/list/13?phone=13588154556](https://sfportal.aistarfish.net/bcresearch/show/#/csco/list/13?phone=13588154556)<br />不良反应问卷应用：[https://dtx.aistarfish.com/admin/patient-education/#/](https://dtx.aistarfish.com/admin/patient-education/#/)<br />表单渲染工具库：[https://aistarfish.yuque.com/engpvq/ts9qw5/iy8aym](https://aistarfish.yuque.com/engpvq/ts9qw5/iy8aym)<br />lego 接入文档：[https://aistarfish.yuque.com/engpvq/ts9qw5/vi8cr6](https://aistarfish.yuque.com/engpvq/ts9qw5/vi8cr6)
-<a name="VLJY5"></a>
+### 表单编辑态
+* ![编辑](https://static.aistarfish.com/front-release/file/F2023090517340410900003427.6.png)
+
+### 表单预览态
+* ![预览](https://static.aistarfish.com/front-release/file/F2023090517340412500000825.5.png)
+
 ## 3. 技术难点分析
-<a name="m2PeC"></a>
+
 ### 3.1 表单联动
 
 - 表单联动监听
@@ -30,33 +38,30 @@ lego 线下：[https://lego.aistarfish.net/#/](https://lego.aistarfish.net/#/)<b
    - 组件同时设置了关联逻辑，由关联了其他其他的跳转逻辑
    - 组件不同选项设置了不同逻辑的跳转逻辑，选项切换时该如何恢复
 - 组件展示执行
-<a name="A5rb9"></a>
+
 ### 3.2 数据结构定义
 
 - 参考 json-scheme 数据结构定义方式
-<a name="ifFsN"></a>
+
 ## 4. 关键技术选型和思考
-<a name="VDEFu"></a>
+
 ### 方案分析
-<a name="fKNje"></a>
-####  [https://aistarfish.yuque.com/engpvq/ts9qw5/sx77wb](https://aistarfish.yuque.com/engpvq/ts9qw5/sx77wb)
-<a name="L9XOl"></a>
+* [拖拽式表单生成方案](/practice/drag_form_generate.md)
+
 ### 最终方案
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/168170/1647162923827-ce4a9327-8476-43fd-b3e9-f7a0a1f4d32f.png#clientId=u0d6c1478-08d0-4&from=paste&height=289&id=MJOmy&originHeight=578&originWidth=1124&originalType=binary&ratio=1&rotation=0&showTitle=false&size=71382&status=done&style=stroke&taskId=ud9f5b65e-e2d4-453a-be84-30efbd702bf&title=&width=562)<br />通过 proxy 监听数据的变化，当依赖的组件的值修改时， 使用 eval 函数执行对应的语句实现联动功能。
+* ![image.png](https://static.aistarfish.com/front-release/file/F2023090516451181100009803.4.png)
+* 通过 proxy 监听数据的变化，当依赖的组件的值修改时， 使用 eval 函数执行对应的语句实现联动功能。
+  - show：控制组件的展示和隐藏属性。
+  - showCondition：组件的显示条件（js语句）。
+  - value：组件值。
 
-- show：控制组件的展示和隐藏属性。
-- showCondition：组件的显示条件（js语句）。
-- value：组件值。
-
-show 控制UI组件的展示，showCondition 记录了组件的显示条件，当依赖组件发生变化时，执行 showCondition 的脚本，通过脚本的执行结果设置 show 或者 value 的值。
-<a name="VRueX"></a>
+* show 控制UI组件的展示，showCondition 记录了组件的显示条件，当依赖组件发生变化时，执行 showCondition 的脚本，通过脚本的执行结果设置 show 或者 value 的值。
 ## 5. 关键技术点
-<a name="Bl7ql"></a>
 ### 5.1 proxy
-<a name="T3gYk"></a>
 #### 概述
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/168170/1657181316428-48a44a17-b7e2-4c2c-9b39-8ee6b4e67fd9.png#clientId=uf980f38c-c55c-4&from=paste&height=149&id=RrNPR&originHeight=298&originWidth=1192&originalType=binary&ratio=1&rotation=0&showTitle=false&size=121963&status=done&style=stroke&taskId=u7ebca2ae-6c71-457e-8737-ae7acacdd6b&title=&width=596)
-<a name="iDxyE"></a>
+* `Proxy` 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”(meta programming) ，即对编程语言进行编程。
+* `Proxy` 可以理解成，在目标对象之前架设一层“拦截"，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy这个词的原意是代理，用在这里表示由它来"代理”某些操作，可以译为"代理器”
+
 #### 示例
 ```javascript
 var obj = new Proxy({}, {
@@ -77,12 +82,8 @@ obj.count = 1
 //  setting count!
 //  2
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/168170/1657181620832-b7d6b0ef-75fe-4555-b4f5-8aeb7934e3ef.png#clientId=uf980f38c-c55c-4&from=paste&height=307&id=u670dc2d0&originHeight=614&originWidth=880&originalType=binary&ratio=1&rotation=0&showTitle=false&size=107823&status=done&style=stroke&taskId=u67c469e9-8d1f-4c98-8807-9c139d618e6&title=&width=440)
-<a name="uQQbA"></a>
+![7.png](https://static.aistarfish.com/front-release/file/F2023090517365880300008760.7.png)
 #### 应用场景
-<a name="ldaXF"></a>
-##### mobx
-<a name="BHRDg"></a>
 ##### vue3
 ```javascript
 function createReactiveObject(
