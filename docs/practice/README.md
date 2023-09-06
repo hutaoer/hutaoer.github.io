@@ -15,8 +15,9 @@ sidebar: auto
 - [命令行工具开发总结](/practice/cli_tool.md)
 - [webpack 4.0 升级到 5.0](/practice/upgrade_webpack4_to_5.md)
 - [Taro 2.0 升级到 3.0 记录](/practice/upgrade_taro2_to_3.md)
-- [拖拽式表单生成方案](/practice/drag_form_generate.md)
-- [表单配置可视化实践](/practice/form_config_solution.md)
+- [拖拽式表单配置化方案调研](/practice/drag_form_generate.md)
+- [表单配置化方案评估](/practice/form_config_evaluation.md)
+- [表单配置化实践](/practice/form_config_solution.md)
 - [微前端实践](/practice/micro_client.md)
 - [微信小程序 SaaS 化实践](/practice/wx_mini_saas.md)
 - [git submodule 与 subtree 的选型](/practice/submodule_subtree.md)
@@ -26,4 +27,6 @@ sidebar: auto
 - [Web端基础类库开发](/practice/web_lib_develop.md)
 - [Web端H5组件库开发](/practice/web_h5_components_develop.md)
 - [Web端PC组件库开发](/practice/web_pc_components_develop.md)
+- [画布二次封装](/practice/web_pc_components_develop.md)
+
 

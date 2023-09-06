@@ -11,11 +11,12 @@ sidebar: auto
 - [代码审核规范](/team/code_review_rules.md)
 - [前端方案评估规范](/team/f2e_project_design_rules.md)
 - [团队管理实践](/team/how_to_manage_team.md)
-- [业务代码 Code Review](/team/business_project_cr.md)
+- [代码 Code Review](/team/business_project_cr.md)
 - [虚拟兴趣小组规划](/team/virtual_study_group.md)
 - [2022年度规划](/team/2022_plan.md)
 - [2023年度规划](/team/2023_plan.md)
 - [专利申请](/team/invention.md)
+- [大前端故障总结](/team/fault_summary.md)
 
 ## [实践](/practice)
 
@@ -45,6 +46,8 @@ sidebar: auto
 ## [跨端](/cross-platform)
 - [iOS 接入 Flutter 碰到的问题和解决方案](/cross-platform/flutter_ios_hybrid.md)
 - [Flutter](/cross-platform/flutter.md)
+- [uni-app](/cross-platform/uni-app.md)
+- [react-native](/cross-platform/react-native.md)
 
 ## [学习](/study)
 - [TypeScript 学习笔记 —— 基础](/study/ts_note_basic.md)
@@ -93,6 +96,11 @@ sidebar: auto
 
 ## [想法](/open)
 - [基于地理位置的优惠信息共享](/idea/position_discount_share.md)
+- [Flutter图书管理](/idea/)
+
+## [资源](/resource)
+- [常用图片素材](/resource/image.md)
+- [电子书](/resource/ebook.md)
 
 ## [随笔](/life)
 - [童言趣语](/life/boby_funny_words.md)

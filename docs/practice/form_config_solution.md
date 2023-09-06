@@ -1,8 +1,10 @@
 ---
 sidebar: auto
+tags:
+  - 低代码
 ---
 
-# 表单配置可视化实践
+# 表单配置化实践
 
 ## 1. 项目背景
 * 真实世界研究包含了：真实世界研究、真实世界证据和真实世界数据三大模块。其中的真实世界数据，是非常重要的一环。真实世界数据可以来源患者的病历，也可以来源一些随访问卷等。其中的问卷、病历或者是随访，其实都是一个个可视化表单，表单意味着信息的初始来源，是第一手数据的载体。
@@ -41,7 +43,7 @@ sidebar: auto
 
 ### 3.2 数据结构定义
 
-- 参考 json-scheme 数据结构定义方式
+- 参考 `json-scheme` 数据结构定义方式
 
 ## 4. 关键技术选型和思考
 
@@ -50,14 +52,14 @@ sidebar: auto
 
 ### 最终方案
 * ![image.png](https://static.aistarfish.com/front-release/file/F2023090516451181100009803.4.png)
-* 通过 proxy 监听数据的变化，当依赖的组件的值修改时， 使用 eval 函数执行对应的语句实现联动功能。
+* 通过 Proxy 监听数据的变化，当依赖的组件的值修改时， 使用 eval 函数执行对应的语句实现联动功能。
   - show：控制组件的展示和隐藏属性。
   - showCondition：组件的显示条件（js语句）。
   - value：组件值。
 
 * show 控制UI组件的展示，showCondition 记录了组件的显示条件，当依赖组件发生变化时，执行 showCondition 的脚本，通过脚本的执行结果设置 show 或者 value 的值。
 ## 5. 关键技术点
-### 5.1 proxy
+### 5.1 Proxy
 #### 概述
 * `Proxy` 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”(meta programming) ，即对编程语言进行编程。
 * `Proxy` 可以理解成，在目标对象之前架设一层“拦截"，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy这个词的原意是代理，用在这里表示由它来"代理”某些操作，可以译为"代理器”
@@ -84,7 +86,7 @@ obj.count = 1
 ```
 ![7.png](https://static.aistarfish.com/front-release/file/F2023090517365880300008760.7.png)
 #### 应用场景
-##### vue3
+* Vue3中
 ```javascript
 function createReactiveObject(
   target: Target,
@@ -125,6 +127,7 @@ function createReactiveObject(
   return proxy
 }
 ```
+* Vue2中
 ```javascript
 /**
  * Define a reactive property on an Object.
@@ -217,44 +220,38 @@ export function defineReactive(
 }
 ```
 
-- proxy **VS** Object.defineproperty
+- Proxy **VS** Object.defineProperty
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/168170/1657189644889-25d9f322-f410-4d2b-91a8-ddd91c07eef0.png#clientId=uda86c7f2-a671-4&from=paste&height=312&id=uc3de0c9d&originHeight=624&originWidth=1560&originalType=binary&ratio=1&rotation=0&showTitle=false&size=119625&status=done&style=none&taskId=u496b99dc-1107-4729-afb5-2f204924603&title=&width=780)
-<a name="XFqQ3"></a>
+![image.png](https://static.aistarfish.com/front-release/file/F2023090610595019800004060.11.png)
+
 ### 5.2 eval
-<a name="ugJHJ"></a>
-#### 概述
-eval() 函数计算 JavaScript 字符串，并把它作为脚本代码来执行。<br />如果参数是一个表达式，eval() 函数将执行表达式。如果参数是Javascript语句，eval()将执行 Javascript 语句。
+* eval() 函数计算 JavaScript 字符串，并把它作为脚本代码来执行。<br />如果参数是一个表达式，eval() 函数将执行表达式。如果参数是Javascript语句，eval()将执行 Javascript 语句。
+* 执行Javascript语句
+* ![image.png](https://static.aistarfish.com/front-release/file/F2023090611031335400002924.12.png)
+* 执行表达式
+* ![image.png](https://static.aistarfish.com/front-release/file/F2023090611031335400006714.13.png)
 
-- 执行Javascript语句
-
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/168170/1657180468824-1aaf5468-7e5b-4e2e-8450-48b093c247ee.png#clientId=uf980f38c-c55c-4&from=paste&height=99&id=hA8ql&originHeight=198&originWidth=978&originalType=binary&ratio=1&rotation=0&showTitle=false&size=37044&status=done&style=stroke&taskId=u54522e00-9024-456c-86bc-33f6501dacb&title=&width=489)
-
-- 执行表达式
-
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/168170/1657180810652-85a79781-88e0-40b7-931b-3ececce632e8.png#clientId=uf980f38c-c55c-4&from=paste&height=119&id=b1hh8&originHeight=238&originWidth=1236&originalType=binary&ratio=1&rotation=0&showTitle=false&size=38685&status=done&style=stroke&taskId=u4a112fc1-0b66-448d-849e-78470164d7e&title=&width=618)
-<a name="e7eBv"></a>
 #### 使用示例
 
 - form-render：[https://e.gitee.com/aistarfish/repos/aistarfish/form-render/sources](https://e.gitee.com/aistarfish/repos/aistarfish/form-render/sources)
 - formula-edit：[https://e.gitee.com/aistarfish/repos/aistarfish/formula-edit/sources](https://e.gitee.com/aistarfish/repos/aistarfish/formula-edit/sources)
+- 展示效果如下：
+  - ![image.png](https://static.aistarfish.com/front-release/file/F2023090611052108200001426.14.png)
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/168170/1657182481540-9d7499a8-4f61-4e30-af21-bdf128caa92b.png#clientId=uf980f38c-c55c-4&from=paste&height=382&id=u092f2783&originHeight=764&originWidth=570&originalType=binary&ratio=1&rotation=0&showTitle=false&size=56411&status=done&style=stroke&taskId=u63585871-5d18-4e59-8e39-b22e5032187&title=&width=285)
-<a name="iz07y"></a>
-## 6. 具体实现
-<a name="OZVjq"></a>
-### 6.1 具体实现
-<a name="nTxzM"></a>
-#### 6.1.1 数据结构设计
-[https://aistarfish.yuque.com/engpvq/ts9qw5/wau8d1](https://aistarfish.yuque.com/engpvq/ts9qw5/wau8d1)
-<a name="FZgQg"></a>
-#### 6.1.2 关键实现逻辑
-<a name="PoRl8"></a>
-##### 控件展示逻辑
-控件展示受制于跳题逻辑和关联逻辑，为此设计了 jumpShow，relevanceShow 分别控制，只有当二者同时为true 时该控件的 show 为 true 。<br />![image.png](https://cdn.nlark.com/yuque/0/2022/png/168170/1647229433319-7f24e79a-71f3-4899-9c21-728c4f053a9d.png#clientId=u934d5a92-29a5-4&from=paste&height=469&id=ua509c0e2&originHeight=938&originWidth=1718&originalType=binary&ratio=1&rotation=0&showTitle=false&size=188884&status=done&style=none&taskId=u46d47fe7-2b9a-4402-8e85-1c56c62ef2e&title=&width=859)<br />![image.png](https://cdn.nlark.com/yuque/0/2022/png/168170/1647229453989-e0d1178e-31c1-4529-80dc-d2aa0602e047.png#clientId=u934d5a92-29a5-4&from=paste&height=370&id=u787d3bcf&originHeight=740&originWidth=1528&originalType=binary&ratio=1&rotation=0&showTitle=false&size=136600&status=done&style=none&taskId=u2e88362a-f8d4-4fb9-9c07-6afe30863dd&title=&width=764)
-<a name="EFzZI"></a>
-##### 逻辑表达式生成与执行
-页面初始化时根据表单配置生成逻辑表达式，在符合条件时执行。
+## 6. 实现
+
+### 6.1 数据结构设计
+详见：[表单配置化方案评估](/practice/form_config_evaluation.md)
+
+### 6.2 关键实现逻辑
+
+### 控件展示逻辑
+控件展示受制于跳题逻辑和关联逻辑，为此设计了 jumpShow，relevanceShow 分别控制，只有当二者同时为true 时该控件的 show 为 true 。
+![image.png](https://static.aistarfish.com/front-release/file/F2023090615043696800004628.15.png)
+![image.png](https://static.aistarfish.com/front-release/file/F2023090615043694900000574.16.png)
+
+### 逻辑表达式生成与执行
+* 页面初始化时根据表单配置生成逻辑表达式，在符合条件时执行。
 ```javascript
 // 根据设置的跳题条件生成跳题表达式
     generateJumpTemp = (item, formList) => {
@@ -316,9 +313,10 @@ eval() 函数计算 JavaScript 字符串，并把它作为脚本代码来执行�
         eval(string);
     };
 ```
-<a name="xHy1t"></a>
-##### 表单控件监听
-通过使用 proxy 实现监听，但是为了避免过度监听，造成性能损耗，只监听关键属性。
+
+### 表单控件监听
+* 通过使用 proxy 实现监听，但是为了避免过度监听，造成性能损耗，只监听关键属性。
+
 ```javascript
 // 监听form 数据
 export const proxy = (data, valueChangeCb, showChangeCb) => new Proxy(data, {
@@ -367,9 +365,9 @@ export const arrayProxy = (obj, valueChangeCb, showChangeCb) => {
     return obj;
 };
 ```
-<a name="iHvnA"></a>
-##### 组件关联关系集合
-页面初始化时收集所有组件间的关联关系，避免每次组件值变化时都得去查找所有相关联的组件，减少了损耗。
+
+### 组件关联关系集合
+* 页面初始化时收集所有组件间的关联关系，避免每次组件值变化时都得去查找所有相关联的组件，减少了损耗。
 ```javascript
 /**
  * 组件间的关联关系集合, key是被依赖组件id, value 是所有依赖了组件的集合。如现有关联关系如下：
@@ -409,8 +407,8 @@ export const getRelevanceMap = (formList) => {
     return relevanceMap;
 };
 ```
-<a name="PDlI6"></a>
-##### 组件信息集合
+
+### 组件信息集合
 页面初始化时收集了控件信息，避免每次控件执行时都得去遍历获取组件信息，减少了损耗。
 ```javascript
 /**
@@ -437,8 +435,8 @@ export const getRelevanceMap = (formList) => {
     this.previewComponentIdMap = componentIdMap;
   }
 ```
-<a name="vlb7S"></a>
-##### 关联关系清除
+
+### 关联关系清除
 组件拖动时，可能会导致之前设置好的关联关系变为异常，因而有必要清除异常的关系。对于异常关系的处理，使用了 Map，简洁高效。
 ```javascript
 /**
@@ -506,67 +504,69 @@ export const clearLogicSetting = (editingFormList, isClear) => {
 };
 
 ```
-<a name="LBHRF"></a>
-## 7. 项目遇到问题
-<a name="phfMY"></a>
+
+## 7. 问题
+
 ### 数据过多时，页面卡顿
+* 原因：`updatePreviewForm`方法，会多次执行bind方法
 ```javascript
 render() {
-    const { item, index, previewForm } = this.props;
-    return (
-      <div className="form-item preview-component">
-        <div className="title-wrapper">
-          {
-            item.required && (<span className="item-required">*</span>)
-          }
-        </div>
-        <div className="preview-content">
-          <FDTitle item={item} />
-          {
-            (() => {
-                switch (item.type) {
-                  case 'radio':
-                    return (
-                      <FPRadio index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />
-                    );
-                  case 'select':
-                    return (
-                      <FPSelect index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />
-                    );
-                  case 'checkbox':
-                    return <FPCheckbox index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
-                  case 'multipleSelect':
-                    return <FPMultipleSelect index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
-                  case 'singleFill':
-                    return <FPSingleFill index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
-                  case 'LWHFill':
-                    return <FPLWHFill index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
-                  case 'mobilePhone':
-                    return <FPInputBox index={index} previewForm={previewForm} icon="icon-shoujihaoma" updatePreviewForm={this.updatePreviewForm.bind(this)} />;
-                  case 'fixPhone':
-                    return <FPFixPhone index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
-                  case 'IDCard':
-                    return <FPInputBox index={index} previewForm={previewForm} icon="icon-shenfenzheng" updatePreviewForm={this.updatePreviewForm.bind(this)} />;
-                  case 'address':
-                    return <FPAddress index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
-                  case 'date':
-                    return <FPDate index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
-                  case 'time':
-                    return <FPTime index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
-                  case 'TNM':
-                    return <FPTNM index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
-                  case 'componentGroup':
-                    return <Group index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
-                  default:
-                    break;
-                }
-            })()
-          }
-        </div>
+  const { item, index, previewForm } = this.props;
+  return (
+    <div className="form-item preview-component">
+      <div className="title-wrapper">
+        {
+          item.required && (<span className="item-required">*</span>)
+        }
       </div>
-    );
-  }
+      <div className="preview-content">
+        <FDTitle item={item} />
+        {
+          (() => {
+              switch (item.type) {
+                case 'radio':
+                  return (
+                    <FPRadio index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />
+                  );
+                case 'select':
+                  return (
+                    <FPSelect index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />
+                  );
+                case 'checkbox':
+                  return <FPCheckbox index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
+                case 'multipleSelect':
+                  return <FPMultipleSelect index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
+                case 'singleFill':
+                  return <FPSingleFill index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
+                case 'LWHFill':
+                  return <FPLWHFill index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
+                case 'mobilePhone':
+                  return <FPInputBox index={index} previewForm={previewForm} icon="icon-shoujihaoma" updatePreviewForm={this.updatePreviewForm.bind(this)} />;
+                case 'fixPhone':
+                  return <FPFixPhone index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
+                case 'IDCard':
+                  return <FPInputBox index={index} previewForm={previewForm} icon="icon-shenfenzheng" updatePreviewForm={this.updatePreviewForm.bind(this)} />;
+                case 'address':
+                  return <FPAddress index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
+                case 'date':
+                  return <FPDate index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
+                case 'time':
+                  return <FPTime index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
+                case 'TNM':
+                  return <FPTNM index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
+                case 'componentGroup':
+                  return <Group index={index} previewForm={previewForm} updatePreviewForm={this.updatePreviewForm.bind(this)} />;
+                default:
+                  break;
+              }
+          })()
+        }
+      </div>
+    </div>
+  );
+}
 ```
+* 解决：修改为统一的绑定
 ```javascript
 constructor(props) {
     super(props);
@@ -616,20 +616,17 @@ render() {
   
 
 ```
-updatePreviewForm 回调函数作为 prop 传入子组件时，这些组件可能会进行额外的重新渲染。所以将事件在构造器中绑定避免了这类性能问题。
-<a name="fLn5y"></a>
-### npm link 报错
-<a name="LrrWE"></a>
-#### 背景
-应用项目A和 npm 项目B都使用了 react 或者 react-dom 时，当 A 引用了 B，启动项目 A 会报错误。那是由于在项目中使用了不同版本的 react。 
-<a name="SENYp"></a>
-#### 解决方案
-原因是由于使用了 npm link 后，项目中出现了多个版本的react，所以应避免有多版本的 react、react-dom。
+`updatePreviewForm` 回调函数作为 `prop` 传入子组件时，这些组件可能会进行额外的重新渲染。所以将事件在构造器中绑定避免了这类性能问题。
 
-操作步骤：<br />进入 A 项目，进入到项目中的 node_modules 下的 react、react-dom，执行 npm link；<br />进入B项目，执行 Npm link react react-dom。
-<a name="XvDSb"></a>
-## 8. 不足
-由于 Form Render 是通过 store 管理的数据，所以在一个组件中只能同时展示一个表单。对于此问题你能看到的现象就是，当你的组件中想要同时渲染多个表单时，所有渲染出的表单都是获取到的最后一份表单配置。
-<a name="ZJgIL"></a>
-## 9. 未来规划
-快速交付表单类功能，沉淀平台能力。
+### npm link 报错
+* 场景：
+  - 应用项目A和 `npm` 项目B都使用了 `react` 或者 `react-dom` 时，当 A 引用了 B，启动项目 A 会报错误。那是由于在项目中使用了不同版本的 `react`。 
+* 解决方案：
+  - 原因是由于使用了 `npm link` 后，项目中出现了多个版本的 `react`，所以应避免有多版本的 `react、react-dom`。
+* 操作步骤：
+  - 进入 A 项目，进入到项目中的 `node_modules` 下的 `react、react-dom`，执行 `npm link`；
+  - 进入 B 项目，执行 `npm link react react-dom`。
+
+## 8. 待优化
+* 由于 `Form Render` 是通过 `store` 管理的数据，所以在一个组件中只能同时展示一个表单。对于此问题你能看到的现象就是，当你的组件中想要同时渲染多个表单时，所有渲染出的表单都是获取到的最后一份表单配置。
+* 快速交付表单类功能，沉淀平台能力。
