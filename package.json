@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/hutaoer/hutaoer.github.io#readme",
   "devDependencies": {
+    "@vuepress-reco/vuepress-plugin-pagation": "^1.6.17",
     "vuepress": "^1.8.2",
     "vuepress-theme-reco": "^1.6.17"
   }

@@ -3,6 +3,11 @@ module.exports = {
   title: "逗逼码农:Blackey",
   description: "持续提升，降低欲望；乐观幽默，自律坦然",
   port: 8081,
+  plugins: [
+    ['@vuepress-reco/vuepress-plugin-pagation', {
+        perPage: 10  // 每页展示条数
+    }]
+  ],
   themeConfig: {
     type: 'blog',
     blogConfig: {

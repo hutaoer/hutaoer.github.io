@@ -1,8 +1,11 @@
 ---
 sidebar: auto
+title: 欢迎来到逗逼码农的一亩三分地
+heroText: null  # 禁用标题
+tagline: null   # 禁用副标题
 ---
 
-# 积累与提升
+持续提升，降低欲望；乐观幽默，自律坦然
 
 ## [团队](/team)
 
@@ -84,7 +87,7 @@ sidebar: auto
 - [节流](/code/debounce.md)
 - [防抖](/code/quick_sort)
 - [leecode 数组反转](/code/reverse_array)
-- [leecode 回文](/code/)
+- [leecode 删除相邻的重复字符](/code/remove_all_adjacent_duplicates_in_string.md)
 - [leecode 求素数](/code/jsonp)
 
 ## [想法](/idea)
