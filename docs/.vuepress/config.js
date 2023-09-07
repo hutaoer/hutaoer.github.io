@@ -8,12 +8,6 @@ module.exports = {
       { text: "旧的博客", link: "https://www.cnblogs.com/hutaoer/" },
       { text: "github", link: "https://github.com/hutaoer" },
     ],
-    sidebar: [
-      {
-        title: '团队',
-        path: '/team'
-      }
-    ]
   },
   head: [
     ['script', {}, `
