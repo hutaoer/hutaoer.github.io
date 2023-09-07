@@ -1,5 +1,6 @@
 ---
 sidebar: auto
+isShowComments: true    # 展示评论
 category: 实践
 tags:
   - 性能优化 
