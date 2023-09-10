@@ -1,5 +1,9 @@
 ---
 sidebar: auto
+category: 跨端
+tags:
+  - Flutter
+  - iOS
 ---
 
 # iOS 接入 Flutter 碰到的问题和解决方案
