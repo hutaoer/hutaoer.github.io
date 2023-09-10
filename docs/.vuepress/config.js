@@ -17,8 +17,8 @@ module.exports = {
     },
     nav: [
       { text: "首页", link: "/" },
-      { text: "旧的博客", link: "https://www.cnblogs.com/hutaoer/" },
       { text: "github", link: "https://github.com/hutaoer" },
+      { text: "旧的博客", link: "https://www.cnblogs.com/hutaoer/" },
     ],
   },
   head: [

@@ -35,3 +35,4 @@ sidebar: auto
 - [git rebase 和 git merge](/study/git_rebase_merge.md)
 - [webpack 学习笔记](/study/webpack.md)
 - [koa 中间件学习笔记](/study/koa_middleware.md)
+- [mongodb 实战总结](/practice/mongodb_practice.md)

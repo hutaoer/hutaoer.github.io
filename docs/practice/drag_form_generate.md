@@ -1,8 +1,9 @@
 ---
 sidebar: auto
-category: 低代码
+category: 实践 
 tags:
   - 低代码
+  - 表单配置化
 ---
 
 # 拖拽式表单生成方案

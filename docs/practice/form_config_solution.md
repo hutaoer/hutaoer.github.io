@@ -1,7 +1,9 @@
 ---
 sidebar: auto
+category: 实践
 tags:
   - 低代码
+  - 表单配置化
 ---
 
 # 表单配置化实践

@@ -9,7 +9,6 @@ sidebar: auto
 - [微信小程序 & webview 常见问题](/practice/wx_normal_problems.md)
 - [git 分支管理总结](/practice/git_branch_manage.md)
 - [puppeteer 实战总结](/practice/puppeteer_practice.md)
-- [mongodb 实战总结](/practice/mongodb_practice.md)
 - [Taro 2.0 商城项目总结](/practice/taro_2_mall.md)
 - [乐高搭建系统总结](/practice/lego.md)
 - [命令行工具开发总结](/practice/cli_tool.md)
@@ -18,3 +17,5 @@ sidebar: auto
 - [拖拽式表单配置化方案调研](/practice/drag_form_generate.md)
 - [表单配置化方案评估](/practice/form_config_evaluation.md)
 - [表单配置化实践](/practice/form_config_solution.md)
+- [个案管理平台性能优化](/practice/casemanage_optimize.md)
+- [运营后台微前端改造](/practice/admin_micro_app.md)
