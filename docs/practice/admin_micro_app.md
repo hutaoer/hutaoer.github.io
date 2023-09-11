@@ -22,6 +22,12 @@ tags:
   - 数字疗法：csco ai ，临床试验，数字疗法科室，医生中心下（科室列表 日间化疗中心 药房维护）。路由前缀: `/digital-therapeutics`
   - ocr。路由前缀: `/ocr`
 
+## iframe的缺陷
+* 在微前端框架出现之前，其实还有种方式可以用来加载不同的页面，那就是`Iframe`，但`Iframe`自身有着较多的缺陷和局限性。
+* 虽然隔离性完美，但是`Iframe`同父级窗口的同学，以及同级窗口的通信，较为复杂，有着严格的限制。
+* 性能和加载时间：每个 `IFrame` 都需要加载和渲染独立的 `HTML`、`CSS` 和 `JavaScript`。这意味着在加载微前端应用时，需要同时加载多个 `IFrame`，导致额外的网络请求和页面资源占用，可能会影响性能和加载时间。
+* 样式和布局限制：`IFrame` 的内容在页面中是独立的，它们具有自己的 `CSS` 样式和布局上下文。这导致在微前端架构中难以实现全局样式的一致性，以及子应用之间的布局和交互的协调问题。
+
 ## 实施
 
 ### 主应用
@@ -379,10 +385,12 @@ export default class ProxySandbox implements SandBox {
 
 ### CSS隔离
 * `qiankun`提供了两种CSS隔离方式：`ShadowDOM`和`Scoped CSS`
+* 默认不开启样式隔离。
 
 #### ShadowDOM 方式
 * 配置`sandbox.strictStyleIsolation: true`时，开启`ShadowDOM`样式沙箱。
 * 该模式下会为每个微应用的容器包裹上一个 `shadow dom` 节点，从而确保微应用的样式不会对全局造成影响。
+* 注意：除了样式的硬隔离，DOM 元素也直接隔离，导致子应用的一些 `Modal、Popover、Drawer` 组件会因为找不到主应用的 `body` 而丢失。
 
 #### Scoped CSS 方式
 * 配置`sandbox.experimentalStyleIsolation: true`，开启`Scoped CSS`样式沙箱。
