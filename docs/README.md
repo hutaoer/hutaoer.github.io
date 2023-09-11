@@ -20,6 +20,7 @@ tagline: null   # 禁用副标题
 - [大前端规划脑图](/team/big_f2e_brain.md)
 - [前端开发问题总结](/team/problem_summary.md)
 - [故障处理流程](/team/fault_action.md)
+- [前端 job model](/team/job_model.md)
 - [2022年度规划](/team/2022_plan.md)
 - [2022绩效管理](/team/2022_kpi.md)
 - [2023年度规划](/team/2023_plan.md)
