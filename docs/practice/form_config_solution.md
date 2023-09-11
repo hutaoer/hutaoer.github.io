@@ -20,22 +20,115 @@ tags:
   - ![病历打标](https://static.aistarfish.com/front-release/file/F2023090516382733400006407.2.png)
   - 问卷填写：
   - ![不良反应问卷-填写](https://static.aistarfish.com/front-release/file/F2023090516342941500004443.3.png)
-## 2. 目标功能
+## 2. 目标
 
 1. 实现一个可自定义配置的表单配置平台。
 2. 能支持内部系统应用场景如病历打标的表单配置，承载各个业务线的简单表单和问卷需求。
 3. 支持真实世界研究自定义复杂表单配置。
 
-## 3. 成果展示
+## 成果展示
 ### 表单编辑态
 * ![编辑](https://static.aistarfish.com/front-release/file/F2023090517340410900003427.6.png)
 
 ### 表单预览态
 * ![预览](https://static.aistarfish.com/front-release/file/F2023090517340412500000825.5.png)
 
-## 3. 技术难点分析
+### 填空题属性配置
+* ![](https://static.aistarfish.com/front-release/file/F2023091114140308800001705.logic_edit.png)
 
-### 3.1 表单联动
+### 填空题逻辑配置
+* ![](https://static.aistarfish.com/front-release/file/F2023091114140300900009515.property_edit.png)
+
+### 整体框架
+* 顶部对表单进行保存，预览，和发布。
+* 左侧展示现有的组件模块
+* 右侧为静态组件展示区域
+
+## 3. 核心逻辑实现
+### 3.1 表单编辑
+* 根据用户拖拽的组件，展示对应的静态样式（这里不需要展示完整逻辑，仅是对属性、逻辑进行编辑）
+* 点击每个静态组件卡片，可以对组件的选项、逻辑进行编辑
+* 编辑模式示例代码
+```js
+<div className={classNames('content-wrapper', { maxWidth: editForm })}>
+    <Droppable droppableId="editPanel">
+      {(provided) => (
+        <div
+          className="droppable-wrapper"
+          ref={provided.innerRef}
+        >
+          <div className="content-box">
+            {/* 表单标题 */}
+
+            {
+              this.state.formType === 'normal' && <FDHeadline />
+            }
+
+            {editingFormList.map((item, index) => (
+              <Draggable
+                key={item.id}
+                draggableId={item.id}
+                index={index}
+              >
+                {/* eslint-disable-next-line no-shadow */}
+
+                {(provided, snapshot) => (
+                  <div
+                    id={item.id}
+                    className={`form-item-wrapper ${(currentOperationInfo.index === index || snapshot.isDragging) ? 'active' : ''}`}
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    onClick={() => this.handleCardClick(item, index)}
+                  >
+                    <div className={classNames('form-item', { maxWidth: editForm })}>
+                    {/* 对每种类型的组件进行展示 */}
+                      <ComponentRender cRef={ref => renderRefs[index] = ref} editInfo={item} edit={false} editIndex={index} />
+                    </div>
+
+                    <OperateFormItem
+                      index={index}
+                      handleLogicSetting={() => this.handleLogicSetting(item, index)}
+                    />
+                  </div>
+                )}
+              </Draggable>
+            ))}
+
+            {provided.placeholder}
+          </div>
+        </div>
+      )}
+    </Droppable>
+
+    {/* 编辑属性弹框 */}
+
+    <EditPropertyModal
+      onRef={ref => this.editPropertyModal = ref}
+      editList={editingFormList}
+      editInfo={currentEditInfo}
+      editIndex={currentEditIndex}
+      hideModal={(editInfo, editIndex) => this.hideEditPropertyModal(editInfo, editIndex)}
+    />
+
+    {/* 逻辑设置弹框 */}
+
+    <EditLogicModal
+      cRef={ref => this.editLogicModal = ref}
+      fromGroup={false}
+      editList={editingFormList}
+      editInfo={currentEditInfo}
+      editIndex={currentEditIndex}
+    />
+  </div>
+
+```
+
+### 3.2 表单预览
+* 表单预览是一个单独的npm二方包，本质上，乐高搭建后台，最重要的作用是编辑问卷数据。当有了数据后，可以在任何地方进行拼装。
+* 比如客户端、web端、小程序端，所以为了满足问卷在更多场景下的渲染，我们把渲染的逻辑，单独抽取为一个npm包：`form-render`
+
+### 3.3 表单联动
 
 - 表单联动监听
    - 组件同时被多个组件所关联
@@ -43,7 +136,7 @@ tags:
    - 组件不同选项设置了不同逻辑的跳转逻辑，选项切换时该如何恢复
 - 组件展示执行
 
-### 3.2 数据结构定义
+### 3.4 数据结构定义
 
 - 参考 `json-scheme` 数据结构定义方式
 
@@ -632,3 +725,5 @@ render() {
 ## 8. 待优化
 * 由于 `Form Render` 是通过 `store` 管理的数据，所以在一个组件中只能同时展示一个表单。对于此问题你能看到的现象就是，当你的组件中想要同时渲染多个表单时，所有渲染出的表单都是获取到的最后一份表单配置。
 * 快速交付表单类功能，沉淀平台能力。
+* 去掉对`mobx`的依赖
+* `form-render`去掉对渲染库的依赖，在需要使用的地方，比如mobile, pc端，在项目中，可以独自引入`antd`和`antd-mobile`，但需要在npm的`peerDependency`中做好依赖声明，减少包体积大小。

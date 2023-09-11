@@ -718,3 +718,4 @@ var hasCycle = function(head) {
 
 ## 三方库使用
 * 拖拽库: `react-beautiful-dnd`
+* 全局id生成库：`snowflake-id`

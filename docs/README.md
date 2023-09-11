@@ -100,5 +100,6 @@ tagline: null   # 禁用副标题
 ## [资源](/resource)
 - [常用图片素材](/resource/image.md)
 - [电子书](/resource/ebook.md)
+- [工具集合](/resource/tools.md)
 ## [随笔](/life)
 - [童言趣语](/life/boby_funny_words.md)

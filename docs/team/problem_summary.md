@@ -7,6 +7,137 @@ tags:
 
 # 前端问题总结
 
+## 小程序Webview中上传图片失败问题
+### 现象
+* 在小程序的`Webview`页面中，点图片上传按钮，应能正确调起图片上传功能。但是会偶发性的出现点击之后没有反应，不能正确调起上传图片功能的现象。
+
+### 原因
+* 由于该页面会同时运行在 APP 和小程序两种环境中，在不同环境，调起方法不同。
+* 环境判断在项目入口文件  `index.js` 中调用，并挂载到 `window.env` 中。上传图片组件是个通用组件，不是直接通过 `window.env `实时获取环境值，而是从父组件将 `window.env` 作为属性值传入。但是，微信官方提供的 获取小程序环境的方法是异步的，导致传入到组件里的环境错误，导致图片上传方法调用失败。
+* 入口代码
+```javascript
+// 获取当前环境
+export const getCurrentEnv = () => {
+  const envPromise = new Promise(resolve => {
+    // 海心患者端/医生端
+    if (hxAppHelper?.isStarfish()) {
+      resolve('starfishPatient');
+    } else if (hxAppHelper?.isStarfishDoctor()) {
+      resolve('starfishDoctor');
+    }
+    // 小程序环境
+    wx.miniProgram.getEnv(res => {
+      if (res.miniprogram) {
+        resolve('miniprogram');
+      }
+    });
+    // 默认为空 - 浏览器环境
+    setTimeout(() => {
+      resolve('');
+    }, 2000);
+  });
+  return envPromise;
+};
+
+
+
+getCurrentEnv().then(env => {
+  window.env = env
+})
+```
+* 父组件代码
+```javascript
+export default class Question extends React.Component {
+  render () {
+    return (
+      <DocumentTitle title={ qnTitle || ' ' }>
+        <FormRender
+            configData={ formConfigData }
+            mode="mobile"
+            appEnv={ window.env === 'miniprogram' ? 'miniprogram' : 'app' }
+            actionObj={{
+              imgUpload: {
+                otherParams: {
+                  modelsName: 'immune_pic_v2',
+                  origin: miniParams.origin,
+                },
+                customRequest: (formData, cb) => this.customRequest(formData, cb),
+              },
+            }}
+            handleSubmit={ this.handleSubmitQues.bind(this) }
+          />
+      </DocumentTitle>
+    )
+  }
+}
+```
+* 环境取值
+* ![](https://cdn.jsdelivr.net/gh/hutaoer/images/1658921723799-62db31ff-92a7-4bbe-b07c-cb476f4e3bd0.png)
+* 图片上传部分代码
+```js
+export default () => {
+  
+  const handleUploadInWX = () {...}
+  
+  const handleUploadInApp = () {...}
+  
+  const handleAdd = () => {
+    if (appEnv === 'miniprogram') {
+      handleUploadInWX()
+    } else {
+      handleUploadInApp()
+    }
+  };
+                                
+  return (
+    <div className="add-btn" onClick={handleAdd}/>
+  )
+}
+```
+
+### 解决方案
+* 由于页面执行 `render` 时 `window.env` 值可能还没获取到，获取到值以后并不会再次执行 `render` 函数，所以应保证在获取到环境值后再次触发 `render` 函数。
+* 因而重新在页面中重新定义一个变量，接受环境值，数据更新将会再次触发 `render`。
+* 示例代码
+```js
+export default () => {
+  
+  const [env, setEnv] = useState(null)
+  const [formConfigData, setFormConfigData] = useState([])
+
+  const getEnv = () => {
+    getCurrentEnv().then(env => {
+      setEnv(env)
+    })
+  }
+  
+  useEffect(() => {
+    getEnv()
+  }, [])
+  
+  return (
+     <DocumentTitle title="问卷详情">
+       {
+          formConfigData?.length && env ? (
+            <div className="wx-ques-detail">
+              <MobileDetail
+                appEnv={ env === 'miniprogram' ? 'miniprogram' : 'app' }
+                titleData={ formBaseInfo }
+                hasFilled
+                configData={ formConfigData }
+                formData={ formSubmitData }
+              />
+            </div>
+          ) : (
+            <Empty emptyText="暂无数据" />
+          )
+       }
+     </DocumentTitle>
+  )
+}  
+
+```
+
 ## 小程序分包之间调用组件报错
 ### 背景
 * 在一次开发中，在B分包目录下写了一个组件， 这个组件后来需要被A分包引用使用，但是在A分包代码中引入组件后，控制台报错提示未找到该模块。
@@ -280,6 +411,27 @@ handleChange = ({ file, fileList }) => {
   };
 ```
 
+## pad端真机环境日历控件超出展示区域
+### 效果
+* ![](https://cdn.jsdelivr.net/gh/hutaoer/images/1677649554034-f0e05a47-df43-4320-ac86-1bccf539edb6.png)
+* 日历控件的弹出方向受视口高度有影响。全屏状态，可以展示正常。非全屏状态，在部分浏览器下有兼容性问题。
+### 解决
+* 避免视口出现滚动条，设置 `centered:true`。
+
+## css属性导致H5页面中的二维码在微信环境下无法长按识别
+### 导致问题的代码
+* 如果css中给img标签设置了pointer-events: none;会导致在微信环境下长按图片无法识别
+```css
+img {
+	pointer-events: none;
+}
+```
+### 解决
+* 去掉全局污染的代码
+
+## 日期格式
+* 在iOS下，有日期格式的兼容性问题，不能直接使用`2021-10-13`，而是需要使用`2021/10/13`
+* 做日期格式化的时候，一般都是采用24小时制，使用`HH`，示例：`moment().format('HH:mm')`
 
 ## js截图保存/上传问题
 ### 背景
