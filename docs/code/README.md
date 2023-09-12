@@ -3,6 +3,7 @@ sidebar: auto
 ---
 
 # [编码](/code)
+- [常用代码片段](/code/usual_snippet.md)
 - [jsonp](/code/jsonp.md)
 - [ajax](/code/ajax.md)
 - [快速排序](/code/quick_sort.md)
