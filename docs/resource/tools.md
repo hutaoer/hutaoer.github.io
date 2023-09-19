@@ -13,3 +13,6 @@ tags:
 
 ## 图片压缩
 * [tinypng](https://tinypng.com/)
+
+## 思维模型
+* [100个思维模型库](https://datai-pm.feishu.cn/wiki/Skd6wpmOxiYnnukVmptcshuVn4f?chunked=false&table=tblHwje8yRW9pELe&view=vewvsHqvdI)

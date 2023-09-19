@@ -11,7 +11,11 @@ tagline: null   # 禁用副标题
 - [前端项目管理总结](/team/project_manage.md)
 - [项目流程梳理](/team/project_process.md)
 - [项目各阶段角色](/team/project_owner.md)
+- [编码风格约定](/team/code_style_rules.md)
+- [目录文件命名规范](/team/category_name_rules.md)
 - [React 编码规范](/team/react_rules.md)
+- [CSS 编码规范](/team/css_rules.md)
+- [代码注释规范](/team/annotation_rules.md)
 - [代码审核规范](/team/code_review_rules.md)
 - [业务域名命名规范](/team/domain_name_rules.md)
 - [前端方案评估规范](/team/f2e_project_design_rules.md)
@@ -50,6 +54,8 @@ tagline: null   # 禁用副标题
 - [表单配置可视化实践](/practice/form_config_solution.md)
 - [个案管理平台性能优化](/practice/casemanage_optimize.md)
 - [运营后台微前端改造](/practice/admin_micro_app.md)
+- [使用docker部署一个php服务](/practice/docker_php.md)
+- [schema动态路由建设](/practice/dynamic_route.md)
 
 ## [跨端](/cross-platform)
 - [iOS集成Flutter调研](/cross-platform/ios_mix_flutter.md)
@@ -58,6 +64,8 @@ tagline: null   # 禁用副标题
 - [Flutter项目安装、调试、问题总结](/cross-platform/flutter_init.md)
 
 ## [学习](/study)
+- [uni-app 初体验](/study/first_uniapp.md)
+- [Svelte 初体验](/study/first_svelte.md)
 - [TypeScript 学习笔记 —— 基础](/study/ts_note_basic.md)
 - [TypeScript 学习笔记 —— 高级](/study/ts_note_advanced.md)
 - [TypeScript 学习笔记 —— 实战](/study/ts_note_in_action.md)
@@ -93,6 +101,7 @@ tagline: null   # 禁用副标题
 - [mongodb 实战总结](/practice/mongodb_practice.md)
 
 ## [编码](/code)
+- [编码整洁细则](/code/clean_code_rules.md)
 - [jsonp](/code/jsonp.md)
 - [ajax](/code/ajax.md)
 - [快速排序](/code/quick_sort.md)
@@ -110,4 +119,5 @@ tagline: null   # 禁用副标题
 - [电子书](/resource/ebook.md)
 - [工具集合](/resource/tools.md)
 ## [随笔](/life)
+- [文玩类电商创业总结](/life/yzt.md)
 - [童言趣语](/life/boby_funny_words.md)
