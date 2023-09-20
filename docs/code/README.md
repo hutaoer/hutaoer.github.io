@@ -14,3 +14,5 @@ sidebar: auto
 - [leecode 数组反转](/code/reverse_array)
 - [leecode 删除相邻的重复字符](/code/remove_all_adjacent_duplicates_in_string.md)
 - [leecode 求素数](/code/jsonp)
+- [leecode 217 存在重复元素](/code/contains_duplicate.md)
+- [leecode 349 求两个数组交集](/code/intersection.md)

@@ -3,7 +3,6 @@ sidebar: auto
 ---
 
 # 学习笔记
-- [uni-app 初体验](/study/first_uniapp.md)
 - [Svelte 初体验](/study/first_svelte.md)
 - [TypeScript 学习笔记 —— 基础](/study/ts_note_basic.md)
 - [TypeScript 学习笔记 —— 高级](/study/ts_note_advanced.md)
@@ -38,3 +37,4 @@ sidebar: auto
 - [webpack 学习笔记](/study/webpack.md)
 - [koa 中间件学习笔记](/study/koa_middleware.md)
 - [mongodb 实战总结](/practice/mongodb_practice.md)
+- [uni-app 初体验](/study/first_uniapp.md)
