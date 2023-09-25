@@ -1,6 +1,6 @@
 ---
 sidebar: auto
-title: 欢迎来到逗逼码农的一亩三分地
+title: 欢迎来到Blackey的一亩三分地
 heroText: null  # 禁用标题
 tagline: null   # 禁用副标题
 ---
@@ -64,7 +64,6 @@ tagline: null   # 禁用副标题
 - [Flutter项目安装、调试、问题总结](/cross-platform/flutter_init.md)
 
 ## [学习](/study)
-- [uni-app 初体验](/study/first_uniapp.md)
 - [Svelte 初体验](/study/first_svelte.md)
 - [TypeScript 学习笔记 —— 基础](/study/ts_note_basic.md)
 - [TypeScript 学习笔记 —— 高级](/study/ts_note_advanced.md)
@@ -114,12 +113,14 @@ tagline: null   # 禁用副标题
 - [leecode 217 存在重复元素](/code/contains_duplicate.md)
 - [leecode 349 求两个数组交集](/code/intersection.md)
 
-## [想法](/idea)
-- [基于地理位置的优惠信息共享](/idea/position_discount_share.md)
 ## [资源](/resource)
 - [常用图片素材](/resource/image.md)
 - [电子书](/resource/ebook.md)
 - [工具集合](/resource/tools.md)
-## [随笔](/life)
+## [感悟](/life)
+- [线下转线上电商创业总结](/life/wljs.md)
 - [文玩类电商创业总结](/life/yzt.md)
 - [童言趣语](/life/boby_funny_words.md)
+
+## [想法](/idea)
+- [基于地理位置的优惠信息共享](/idea/position_discount_share.md)
