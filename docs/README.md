@@ -1,13 +1,14 @@
 ---
 sidebar: auto
 title: 欢迎来到Blackey的一亩三分地
-heroText: null  # 禁用标题
-tagline: null   # 禁用副标题
+heroText: null # 禁用标题
+tagline: null # 禁用副标题
 ---
 
 持续提升，降低欲望；乐观幽默，自律坦然
 
 ## [团队](/team)
+
 - [前端项目管理总结](/team/project_manage.md)
 - [项目流程梳理](/team/project_process.md)
 - [项目各阶段角色](/team/project_owner.md)
@@ -36,7 +37,6 @@ tagline: null   # 禁用副标题
 - [2023 年度规划](/team/2023_plan.md)
 - [专利申请](/team/invention.md)
 
-
 ## [实践](/practice)
 
 - [小程序录音功能开发](/practice/wx_mini_record.md)
@@ -54,16 +54,19 @@ tagline: null   # 禁用副标题
 - [表单配置可视化实践](/practice/form_config_solution.md)
 - [个案管理平台性能优化](/practice/casemanage_optimize.md)
 - [运营后台微前端改造](/practice/admin_micro_app.md)
-- [使用docker部署一个php服务](/practice/docker_php.md)
-- [schema动态路由建设](/practice/dynamic_route.md)
+- [使用 docker 部署一个 php 服务](/practice/docker_php.md)
+- [schema 动态路由建设](/practice/dynamic_route.md)
+- [nvm install 提示 not found](/practice/nvm_install_error.md)
 
 ## [跨端](/cross-platform)
-- [iOS集成Flutter调研](/cross-platform/ios_mix_flutter.md)
+
+- [iOS 集成 Flutter 调研](/cross-platform/ios_mix_flutter.md)
 - [iOS 接入 Flutter 碰到的问题和解决方案](/cross-platform/flutter_ios_hybrid.md)
-- [原生App和Flutter通信接口文档](/cross-platform/app_flutter_communicate.md)
-- [Flutter项目安装、调试、问题总结](/cross-platform/flutter_init.md)
+- [原生 App 和 Flutter 通信接口文档](/cross-platform/app_flutter_communicate.md)
+- [Flutter 项目安装、调试、问题总结](/cross-platform/flutter_init.md)
 
 ## [学习](/study)
+
 - [Svelte 初体验](/study/first_svelte.md)
 - [TypeScript 学习笔记 —— 基础](/study/ts_note_basic.md)
 - [TypeScript 学习笔记 —— 高级](/study/ts_note_advanced.md)
@@ -74,7 +77,7 @@ tagline: null   # 禁用副标题
 - [MongoDB 学习笔记](/study/mongodb_note.md)
 - [Lighthouse 学习笔记](/study/lighthouse_note.md)
 - [puppeteer 学习笔记](/study/puppeteer_note.md)
-- [web性能优化](/study/web_performance_optimazition.md)
+- [web 性能优化](/study/web_performance_optimazition.md)
 - [eslint 学习笔记](/study/eslint_note.md)
 - [JavaScript 学习笔记](/study/javascript.md)
 - [Vue SSR 学习笔记](/study/vue_ssr.md)
@@ -100,6 +103,7 @@ tagline: null   # 禁用副标题
 - [mongodb 实战总结](/practice/mongodb_practice.md)
 
 ## [编码](/code)
+
 - [编码整洁细则](/code/clean_code_rules.md)
 - [jsonp](/code/jsonp.md)
 - [ajax](/code/ajax.md)
@@ -114,13 +118,18 @@ tagline: null   # 禁用副标题
 - [leecode 349 求两个数组交集](/code/intersection.md)
 
 ## [资源](/resource)
+
 - [常用图片素材](/resource/image.md)
 - [电子书](/resource/ebook.md)
 - [工具集合](/resource/tools.md)
+
 ## [感悟](/life)
+
 - [线下转线上电商创业总结](/life/wljs.md)
 - [文玩类电商创业总结](/life/yzt.md)
 - [童言趣语](/life/boby_funny_words.md)
+- [《黑客和画家》读后感](/life/hakers_and_painters.md)
 
 ## [想法](/idea)
+
 - [基于地理位置的优惠信息共享](/idea/position_discount_share.md)

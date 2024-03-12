@@ -19,5 +19,6 @@ sidebar: auto
 - [表单配置化实践](/practice/form_config_solution.md)
 - [个案管理平台性能优化](/practice/casemanage_optimize.md)
 - [运营后台微前端改造](/practice/admin_micro_app.md)
-- [使用docker部署一个php服务](/practice/docker_php.md)
-- [schema动态路由建设](/practice/dynamic_route.md)
+- [使用 docker 部署一个 php 服务](/practice/docker_php.md)
+- [schema 动态路由建设](/practice/dynamic_route.md)
+- [nvm install 提示 not found](/practice/nvm_install_error.md)
