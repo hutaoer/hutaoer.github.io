@@ -116,6 +116,7 @@ tagline: null # 禁用副标题
 - [leecode 求素数](/code/jsonp)
 - [leecode 217 存在重复元素](/code/contains_duplicate.md)
 - [leecode 349 求两个数组交集](/code/intersection.md)
+- [Promise lock](/code/promise_lock.md)
 
 ## [资源](/resource)
 

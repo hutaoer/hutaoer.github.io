@@ -3,6 +3,7 @@ sidebar: auto
 ---
 
 # [编码](/code)
+
 - [编码整洁细则](/code/clean_code_rules.md)
 - [常用代码片段](/code/usual_snippet.md)
 - [jsonp](/code/jsonp.md)
@@ -16,3 +17,4 @@ sidebar: auto
 - [leecode 求素数](/code/jsonp)
 - [leecode 217 存在重复元素](/code/contains_duplicate.md)
 - [leecode 349 求两个数组交集](/code/intersection.md)
+- [Promise lock](/code/promise_lock.md)
