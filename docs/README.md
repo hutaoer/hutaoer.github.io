@@ -1,7 +1,7 @@
 ---
 sidebar: auto
-title: 欢迎来到Blackey的一亩三分地
-heroText: null # 禁用标题
+title: 个人技术分享
+heroText: 个人技术分享 # 禁用标题
 tagline: null # 禁用副标题
 ---
 

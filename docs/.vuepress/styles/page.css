@@ -1,3 +1,13 @@
 .theme-reco-content h1 {
   display: none;
 }
+.black_blog_footer {
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+}
