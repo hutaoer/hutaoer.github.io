@@ -160,15 +160,15 @@ export default App;
 
 ### useMemo 和 useCallback 区别
 
-- useCallback 是 useMemo 的语法糖
+- useCallback 是 useMemo 的语法糖，当依赖项没有变化时，返回一个函数实例。
 - useMemo 需要返回一个结果，不仅可以缓存函数，也可以缓存其他值，比如一些需要大量计算的结果。复杂计算结果的缓存： 当你的组件需要根据输入进行复杂的计算，而这些计算结果不会频繁变化时，使用 useMemo 可以避免在每次渲染时重复计算。 例如，处理大 数据集 的排序、过滤或转换操作。使用 useMemo 来缓存这些 API 调用的结果，从而减少不必要的重绘或重排。
 
 ## 总结
 
-- 对于静态组件，直接使用 memo 包裹，减少渲染次数。
+- 对于静态的，或者交互逻辑简单的组件，直接使用 memo 包裹，减少渲染次数。
 - memo 和 useCallback，useMemo 需要配合才能生效。
 - 具体问题，具体分析，不要滥用。需要传给 props 的方法，才使用 useCallback 包裹，且需要组件使用 memo 包裹才有效。
-- 值得斟酌的场景：
+- 一些使用场景：
 
 ### 非必要使用 useMemo
 
@@ -194,4 +194,17 @@ const arrLen1 = useMemo(() => list.length, []); // 大可不必
 ```jsx
 const getCount = () => 1 + 2;
 const getCount = useCallback(() => 1 + 2, []); // 大可不必
+```
+
+### 函数依赖某个计算结果
+
+```jsx
+const hugeData = [];
+// 缓存计算结果
+const filterData = useMemo(() => {
+  return hugeData.filter((x) => x.name === input);
+}, [input]);
+const handleShowData = useCallback(() => {
+  showData(filterData);
+}, [filterData]);
 ```
