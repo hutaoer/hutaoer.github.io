@@ -36,6 +36,7 @@ tagline: null # 禁用副标题
 - [2022 绩效管理](/team/2022_kpi.md)
 - [2023 年度规划](/team/2023_plan.md)
 - [专利申请](/team/invention.md)
+- [腾讯日本站比赛](/team/wx_japan_match.md)
 
 ## [实践](/practice)
 
@@ -101,6 +102,7 @@ tagline: null # 禁用副标题
 - [koa 中间件学习笔记](/study/koa_middleware.md)
 - [Docker](/study/docker.md)
 - [mongodb 实战总结](/practice/mongodb_practice.md)
+- [React 中 memo、useMemo、useCallBack 的使用](/study/react_use_memo.md)
 
 ## [编码](/code)
 

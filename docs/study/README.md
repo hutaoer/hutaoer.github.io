@@ -3,6 +3,7 @@ sidebar: auto
 ---
 
 # 学习笔记
+
 - [Svelte 初体验](/study/first_svelte.md)
 - [TypeScript 学习笔记 —— 基础](/study/ts_note_basic.md)
 - [TypeScript 学习笔记 —— 高级](/study/ts_note_advanced.md)
@@ -13,7 +14,7 @@ sidebar: auto
 - [MongoDB 学习笔记](/study/mongodb_note.md)
 - [Lighthouse 学习笔记](/study/lighthouse_note.md)
 - [puppeteer 学习笔记](/study/puppeteer_note.md)
-- [web性能优化](/study/web_performance_optimazition.md)
+- [web 性能优化](/study/web_performance_optimazition.md)
 - [eslint 学习笔记](/study/eslint_note.md)
 - [JavaScript 学习笔记](/study/javascript.md)
 - [Vue SSR 学习笔记](/study/vue_ssr.md)
@@ -38,3 +39,4 @@ sidebar: auto
 - [koa 中间件学习笔记](/study/koa_middleware.md)
 - [mongodb 实战总结](/practice/mongodb_practice.md)
 - [uni-app 初体验](/study/first_uniapp.md)
+- [React 中 memo、useMemo、useCallBack 的使用](/study/react_use_memo.md)
