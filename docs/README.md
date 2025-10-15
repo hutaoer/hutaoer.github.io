@@ -103,6 +103,7 @@ tagline: null # 禁用副标题
 - [Docker](/study/docker.md)
 - [mongodb 实战总结](/practice/mongodb_practice.md)
 - [React 中 memo、useMemo、useCallBack 的使用](/study/react_use_memo.md)
+- [《Vibe编程》阅读](/study/read_vibe_coding.md)
 
 ## [编码](/code)
 

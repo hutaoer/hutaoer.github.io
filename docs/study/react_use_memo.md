@@ -8,7 +8,7 @@ tags:
   - 性能优化
 ---
 
-# React 中使用 memo, useMemo, useCallback
+# React 中使用 memo, useMemo, useCallback 及其原理解析
 
 ## 代码示例
 
@@ -158,6 +158,39 @@ function App() {
 export default App;
 ```
 
+## useMemo
+
+### useMemo 原理
+
+- 简单实现如下
+
+```jsx
+function useMemo(callback, dependencies) {
+  const memoRef = useRef();
+  // 缓存依赖
+  const prevDependencies = useRef(dependencies);
+
+  // 将上次依赖和本次依赖对比，如果不相同，则缓存新的值
+  if (!dependenciesEqual(prevDependencies.current, dependencies)) {
+    memoRef.current = callback();
+    prevDependencies.current = dependencies;
+  }
+  // 如果相同，则直接返回上次的结果
+  return memoRef.current;
+}
+
+// 依赖比较
+function dependenciesEqual(prevDeps, deps) {
+  if (prevDeps === null) return false;
+  for (let i = 0; i < deps.length; i++) {
+    if (deps[i] !== prevDeps[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+```
+
 ### useMemo 和 useCallback 区别
 
 - useCallback 是 useMemo 的语法糖，当依赖项没有变化时，返回一个函数实例。
@@ -165,9 +198,10 @@ export default App;
 
 ## 总结
 
-- 对于静态的，或者交互逻辑简单的组件，直接使用 memo 包裹，减少渲染次数。
-- memo 和 useCallback，useMemo 需要配合才能生效。
+- 对于静态的，或者交互逻辑简单的组件，直接使用 memo 包裹，减少渲染次数。组件内部的复杂计算，使用 useMemo 进行包裹，来缓存即可。
+- 对于子组件属性或方法的缓存，需要使用 memo 和 useCallback，useMemo 需要配合才能生效。
 - 具体问题，具体分析，不要滥用。需要传给 props 的方法，才使用 useCallback 包裹，且需要组件使用 memo 包裹才有效。
+- 被 useMemo 包裹的函数，会存在 useMemo 队列中，每次需要找到对应的函数，并对其进行属性校验，都是需要成本的。使用大量的 useMemo 只能带来负面作用。所以 useMemo 不可滥用。
 - 一些使用场景：
 
 ### 非必要使用 useMemo
