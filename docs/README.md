@@ -39,7 +39,8 @@ tagline: null # 禁用副标题
 - [腾讯日本站比赛](/team/wx_japan_match.md)
 
 ## [实践](/practice)
-
+- [服务端接口返回 502 错误排查与解决](/practice/fix_server_502.md)
+- [开发一个未使用的文件检测工具](/practice/tool_unused_files.md)
 - [小程序录音功能开发](/practice/wx_mini_record.md)
 - [App & Hybrid 常见问题](/practice/app_hybrid_problems.md)
 - [微信小程序 & webview 常见问题](/practice/wx_normal_problems.md)
