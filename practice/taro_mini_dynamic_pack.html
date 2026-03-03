@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Taro 多端小程序动态模块打包方案 | 个人技术分享</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        setTimeout(() => {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?b6eca7f42777b93d2edc92dba0220839";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+
+          var divElement = document.createElement('div');
+          divElement.className='black_blog_footer'
+          document.body.appendChild(divElement);
+
+          var aNode = document.createElement("a");
+          aNode.href = 'https://beian.miit.gov.cn/';
+          aNode.text = "浙ICP备18040920号-1"
+
+          document.querySelector('.black_blog_footer').innerHTML = '<a href="https://beian.miit.gov.cn/">浙ICP备18040920号-1</a>'
+        }, 1000)
+        
+      })();
+    </script>
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.8f52efcb.css" as="style"><link rel="preload" href="/assets/js/app.153a178c.js" as="script"><link rel="preload" href="/assets/js/7.ee3859a0.js" as="script"><link rel="preload" href="/assets/js/2.b79aa31a.js" as="script"><link rel="preload" href="/assets/js/1.f68c1bc4.js" as="script"><link rel="preload" href="/assets/js/91.2e5af7d0.js" as="script"><link rel="prefetch" href="/assets/js/10.343458cc.js"><link rel="prefetch" href="/assets/js/100.197a20db.js"><link rel="prefetch" href="/assets/js/101.3b1d4657.js"><link rel="prefetch" href="/assets/js/102.2021f649.js"><link rel="prefetch" href="/assets/js/103.2c85de98.js"><link rel="prefetch" href="/assets/js/104.8e928c4e.js"><link rel="prefetch" href="/assets/js/105.4a0f80fe.js"><link rel="prefetch" href="/assets/js/106.ada5f3eb.js"><link rel="prefetch" href="/assets/js/107.aa32b1e7.js"><link rel="prefetch" href="/assets/js/108.048bfb0c.js"><link rel="prefetch" href="/assets/js/109.aef3cc43.js"><link rel="prefetch" href="/assets/js/11.7eec24cc.js"><link rel="prefetch" href="/assets/js/110.36cf254a.js"><link rel="prefetch" href="/assets/js/111.2404f682.js"><link rel="prefetch" href="/assets/js/112.99d9e32c.js"><link rel="prefetch" href="/assets/js/113.358cd696.js"><link rel="prefetch" href="/assets/js/114.6868319d.js"><link rel="prefetch" href="/assets/js/115.b6dabbf7.js"><link rel="prefetch" href="/assets/js/116.de95a232.js"><link rel="prefetch" href="/assets/js/117.b3ac087f.js"><link rel="prefetch" href="/assets/js/118.28d69589.js"><link rel="prefetch" href="/assets/js/119.118d64aa.js"><link rel="prefetch" href="/assets/js/120.9cf66d53.js"><link rel="prefetch" href="/assets/js/121.fdf7797f.js"><link rel="prefetch" href="/assets/js/122.b3145d6a.js"><link rel="prefetch" href="/assets/js/123.4ccec3ea.js"><link rel="prefetch" href="/assets/js/124.9e0253cf.js"><link rel="prefetch" href="/assets/js/125.bd0bf93d.js"><link rel="prefetch" href="/assets/js/126.e0092b69.js"><link rel="prefetch" href="/assets/js/127.c398a2ad.js"><link rel="prefetch" href="/assets/js/128.08244016.js"><link rel="prefetch" href="/assets/js/129.a684aa3b.js"><link rel="prefetch" href="/assets/js/130.af8ce778.js"><link rel="prefetch" href="/assets/js/131.67d8048a.js"><link rel="prefetch" href="/assets/js/132.a2d75799.js"><link rel="prefetch" href="/assets/js/133.96a79d5a.js"><link rel="prefetch" href="/assets/js/134.a44a3f98.js"><link rel="prefetch" href="/assets/js/135.01ad1814.js"><link rel="prefetch" href="/assets/js/136.6b604248.js"><link rel="prefetch" href="/assets/js/137.736945bb.js"><link rel="prefetch" href="/assets/js/138.6159ed7a.js"><link rel="prefetch" href="/assets/js/139.e32617e5.js"><link rel="prefetch" href="/assets/js/14.0ccfac8c.js"><link rel="prefetch" href="/assets/js/140.b233cbc6.js"><link rel="prefetch" href="/assets/js/141.f9b8f9a4.js"><link rel="prefetch" href="/assets/js/142.c2ae43df.js"><link rel="prefetch" href="/assets/js/143.d7a4cff5.js"><link rel="prefetch" href="/assets/js/144.77fd556d.js"><link rel="prefetch" href="/assets/js/145.00e5550f.js"><link rel="prefetch" href="/assets/js/146.f98055a0.js"><link rel="prefetch" href="/assets/js/147.527c6f97.js"><link rel="prefetch" href="/assets/js/148.501e0a41.js"><link rel="prefetch" href="/assets/js/149.daa70f1d.js"><link rel="prefetch" href="/assets/js/15.22e3db1b.js"><link rel="prefetch" href="/assets/js/150.3d94397a.js"><link rel="prefetch" href="/assets/js/151.97e19b85.js"><link rel="prefetch" href="/assets/js/152.b199c79a.js"><link rel="prefetch" href="/assets/js/153.d460e6e0.js"><link rel="prefetch" href="/assets/js/154.13fc8481.js"><link rel="prefetch" href="/assets/js/155.86e81418.js"><link rel="prefetch" href="/assets/js/156.02246781.js"><link rel="prefetch" href="/assets/js/157.526e5ad2.js"><link rel="prefetch" href="/assets/js/158.b3c5fd54.js"><link rel="prefetch" href="/assets/js/159.541becad.js"><link rel="prefetch" href="/assets/js/16.2df8879c.js"><link rel="prefetch" href="/assets/js/160.332fccbf.js"><link rel="prefetch" href="/assets/js/161.40b81a75.js"><link rel="prefetch" href="/assets/js/162.2c91231d.js"><link rel="prefetch" href="/assets/js/163.2addec71.js"><link rel="prefetch" href="/assets/js/164.8cf73857.js"><link rel="prefetch" href="/assets/js/165.bdd82fe3.js"><link rel="prefetch" href="/assets/js/166.06e00ce4.js"><link rel="prefetch" href="/assets/js/167.7c350154.js"><link rel="prefetch" href="/assets/js/168.4d2fb5e2.js"><link rel="prefetch" href="/assets/js/169.ef53d404.js"><link rel="prefetch" href="/assets/js/17.612d8e56.js"><link rel="prefetch" href="/assets/js/170.3492dd51.js"><link rel="prefetch" href="/assets/js/171.629d44f1.js"><link rel="prefetch" href="/assets/js/172.e86bd5f9.js"><link rel="prefetch" href="/assets/js/173.ae6b5e11.js"><link rel="prefetch" href="/assets/js/174.50a55deb.js"><link rel="prefetch" href="/assets/js/175.61b13a98.js"><link rel="prefetch" href="/assets/js/176.4b3f13cf.js"><link rel="prefetch" href="/assets/js/177.f6f9aca4.js"><link rel="prefetch" href="/assets/js/178.65d044e5.js"><link rel="prefetch" href="/assets/js/179.16ac0f58.js"><link rel="prefetch" href="/assets/js/18.8ca63655.js"><link rel="prefetch" href="/assets/js/180.72f5782c.js"><link rel="prefetch" href="/assets/js/181.a0839d9a.js"><link rel="prefetch" href="/assets/js/182.83bb8f68.js"><link rel="prefetch" href="/assets/js/183.b9f4a8f2.js"><link rel="prefetch" href="/assets/js/184.de7d7f47.js"><link rel="prefetch" href="/assets/js/185.ce3587f3.js"><link rel="prefetch" href="/assets/js/186.3370db6e.js"><link rel="prefetch" href="/assets/js/19.24870089.js"><link rel="prefetch" href="/assets/js/20.f884c0b0.js"><link rel="prefetch" href="/assets/js/21.2f4e228d.js"><link rel="prefetch" href="/assets/js/22.46d9c25a.js"><link rel="prefetch" href="/assets/js/23.cdfb3272.js"><link rel="prefetch" href="/assets/js/24.46f0f18e.js"><link rel="prefetch" href="/assets/js/25.83e06166.js"><link rel="prefetch" href="/assets/js/26.50d0532c.js"><link rel="prefetch" href="/assets/js/27.d86485c2.js"><link rel="prefetch" href="/assets/js/28.e78759b9.js"><link rel="prefetch" href="/assets/js/29.3baf33d6.js"><link rel="prefetch" href="/assets/js/3.ff29b6a0.js"><link rel="prefetch" href="/assets/js/30.248edbf7.js"><link rel="prefetch" href="/assets/js/31.3a94544c.js"><link rel="prefetch" href="/assets/js/32.a35bce04.js"><link rel="prefetch" href="/assets/js/33.5c11060e.js"><link rel="prefetch" href="/assets/js/34.451797f4.js"><link rel="prefetch" href="/assets/js/35.74e12899.js"><link rel="prefetch" href="/assets/js/36.52cf6bc5.js"><link rel="prefetch" href="/assets/js/37.b63e73ae.js"><link rel="prefetch" href="/assets/js/38.631547bd.js"><link rel="prefetch" href="/assets/js/39.935bf3e1.js"><link rel="prefetch" href="/assets/js/4.b3c4e821.js"><link rel="prefetch" href="/assets/js/40.5368d041.js"><link rel="prefetch" href="/assets/js/41.eb5a0fa2.js"><link rel="prefetch" href="/assets/js/42.b3324fdd.js"><link rel="prefetch" href="/assets/js/43.2f3c9f58.js"><link rel="prefetch" href="/assets/js/44.60396c8a.js"><link rel="prefetch" href="/assets/js/45.5eabbdae.js"><link rel="prefetch" href="/assets/js/46.0cb20272.js"><link rel="prefetch" href="/assets/js/47.bbbf943d.js"><link rel="prefetch" href="/assets/js/48.282c5123.js"><link rel="prefetch" href="/assets/js/49.4fee2c73.js"><link rel="prefetch" href="/assets/js/5.47a0aa27.js"><link rel="prefetch" href="/assets/js/50.4567af6c.js"><link rel="prefetch" href="/assets/js/51.11622b10.js"><link rel="prefetch" href="/assets/js/52.7995437e.js"><link rel="prefetch" href="/assets/js/53.83a637d8.js"><link rel="prefetch" href="/assets/js/54.3aabf96c.js"><link rel="prefetch" href="/assets/js/55.e2b084d9.js"><link rel="prefetch" href="/assets/js/56.5b18b802.js"><link rel="prefetch" href="/assets/js/57.ea11ebe2.js"><link rel="prefetch" href="/assets/js/58.039eaadd.js"><link rel="prefetch" href="/assets/js/59.00c6a647.js"><link rel="prefetch" href="/assets/js/6.044e0110.js"><link rel="prefetch" href="/assets/js/60.d2656877.js"><link rel="prefetch" href="/assets/js/61.b52615ea.js"><link rel="prefetch" href="/assets/js/62.4a6181ef.js"><link rel="prefetch" href="/assets/js/63.a718857b.js"><link rel="prefetch" href="/assets/js/64.1f95fac8.js"><link rel="prefetch" href="/assets/js/65.4c970009.js"><link rel="prefetch" href="/assets/js/66.0343a645.js"><link rel="prefetch" href="/assets/js/67.b9c7f21d.js"><link rel="prefetch" href="/assets/js/68.fc5fe189.js"><link rel="prefetch" href="/assets/js/69.2a8e3ca5.js"><link rel="prefetch" href="/assets/js/70.7692ca16.js"><link rel="prefetch" href="/assets/js/71.e764f619.js"><link rel="prefetch" href="/assets/js/72.72cd18d7.js"><link rel="prefetch" href="/assets/js/73.d874b461.js"><link rel="prefetch" href="/assets/js/74.36f8c042.js"><link rel="prefetch" href="/assets/js/75.f3e54823.js"><link rel="prefetch" href="/assets/js/76.b31e6ee7.js"><link rel="prefetch" href="/assets/js/77.38d6e973.js"><link rel="prefetch" href="/assets/js/78.88f4e179.js"><link rel="prefetch" href="/assets/js/79.13343217.js"><link rel="prefetch" href="/assets/js/8.044d81f3.js"><link rel="prefetch" href="/assets/js/80.3381fe08.js"><link rel="prefetch" href="/assets/js/81.44212295.js"><link rel="prefetch" href="/assets/js/82.5ccc82ac.js"><link rel="prefetch" href="/assets/js/83.c4384969.js"><link rel="prefetch" href="/assets/js/84.3958b1d7.js"><link rel="prefetch" href="/assets/js/85.48f0e6f9.js"><link rel="prefetch" href="/assets/js/86.5d66c290.js"><link rel="prefetch" href="/assets/js/87.b8692d3b.js"><link rel="prefetch" href="/assets/js/88.4a286559.js"><link rel="prefetch" href="/assets/js/89.c8610c24.js"><link rel="prefetch" href="/assets/js/9.f8fda2b9.js"><link rel="prefetch" href="/assets/js/90.648a592c.js"><link rel="prefetch" href="/assets/js/92.74b67b5b.js"><link rel="prefetch" href="/assets/js/93.058de372.js"><link rel="prefetch" href="/assets/js/94.c23d295b.js"><link rel="prefetch" href="/assets/js/95.7ea9a701.js"><link rel="prefetch" href="/assets/js/96.df37053b.js"><link rel="prefetch" href="/assets/js/97.47abc727.js"><link rel="prefetch" href="/assets/js/98.6d968890.js"><link rel="prefetch" href="/assets/js/99.76577fd5.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.017a3f08.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8f52efcb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>个人技术分享</h3> <p class="description" data-v-59e6cb88></p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2026
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">个人技术分享</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="https://github.com/hutaoer" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://www.cnblogs.com/hutaoer/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  旧的博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  浙ICP备18040920号-1
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><!----> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>148</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>97</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#f8b26a;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="https://github.com/hutaoer" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://www.cnblogs.com/hutaoer/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  旧的博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  浙ICP备18040920号-1
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88></h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2026
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">Taro 多端小程序动态模块打包方案</h1> <div data-v-8a445198><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="taro-多端小程序动态模块打包方案"><a href="#taro-多端小程序动态模块打包方案" class="header-anchor">#</a> Taro 多端小程序动态模块打包方案</h1> <h2 id="📋-项目概述"><a href="#📋-项目概述" class="header-anchor">#</a> 📋 项目概述</h2> <p>这是一个基于 <strong>Taro 3</strong> 框架的多端小程序项目，主要针对电商业务场景，支持微信小程序、支付宝小程序和 H5 等多端部署。项目采用<strong>动态模块化</strong>的架构，可以针对不同商户进行个性化定制和打包。</p> <h3 id="核心技术栈"><a href="#核心技术栈" class="header-anchor">#</a> 核心技术栈</h3> <ul><li><strong>框架</strong>: Taro 3.6.34</li> <li><strong>UI 库</strong>: 二方包taro-core, materials</li> <li><strong>语言</strong>: TypeScript + React 18</li> <li><strong>样式</strong>: SCSS + TailwindCSS</li> <li><strong>构建工具</strong>: Webpack 5</li> <li><strong>包管理</strong>: Yarn</li></ul> <hr> <h2 id="🏗️-项目架构特点"><a href="#🏗️-项目架构特点" class="header-anchor">#</a> 🏗️ 项目架构特点</h2> <h3 id="_1-动态模块化系统"><a href="#_1-动态模块化系统" class="header-anchor">#</a> 1. 动态模块化系统</h3> <p>项目采用了独特的<strong>动态模块打包</strong>机制，通过配置文件控制不同商户的页面和功能模块：</p> <div class="language- extra-class"><pre class="language-text"><code>src/
+├── pages/              # 主包页面（通用页面）
+├── packCommon/         # 通用分包
+├── packPageA/          # 分包A（扩展功能）
+├── packJumpGame/       # 游戏分包
+├── packageGoods/       # 商品相关分包
+└── merchantPage/       # 商户定制页面
+    ├── matsukiyo/      # 业务定制1
+    ├── yohjiyamamoto/  # 业务定制1
+    └── brisbaneAirport/ # 业务定制3
+</code></pre></div><h3 id="_2-模块配置机制"><a href="#_2-模块配置机制" class="header-anchor">#</a> 2. 模块配置机制</h3> <h4 id="核心配置文件"><a href="#核心配置文件" class="header-anchor">#</a> 核心配置文件</h4> <ul><li><strong><code>merchantRouterConfig.json</code></strong>: 商户路由模块配置</li> <li><strong><code>.dynamic-modules-rules.json</code></strong>: 运行时生成的动态打包规则</li> <li><strong><code>ext.json</code></strong>: 小程序第三方平台扩展配置</li></ul> <h4 id="配置规则结构"><a href="#配置规则结构" class="header-anchor">#</a> 配置规则结构</h4> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;商户标识&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;商户名称&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;custom|base&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;miniRules&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;include&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;包含的页面路径&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;exclude&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;排除的页面路径&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;replace&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;原始页面&quot;</span><span class="token operator">:</span> <span class="token string">&quot;替换页面&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><hr> <h2 id="📦-打包流程分析"><a href="#📦-打包流程分析" class="header-anchor">#</a> 📦 打包流程分析</h2> <h3 id="构建流程图"><a href="#构建流程图" class="header-anchor">#</a> 构建流程图</h3> <div class="language- extra-class"><pre class="language-text"><code>开始打包
+    ↓
+1. 读取 ext.json（获取商户ID和环境）
+    ↓
+2. 调用后端接口获取商户的模块配置
+    ↓
+3. 生成 .dynamic-modules-rules.json
+    ↓
+4. 执行页面替换（replacePage）
+    ↓
+5. 获取物料组件配置，生成 .materials.js
+    ↓
+6. 执行 Taro 构建
+    ↓
+完成打包
+</code></pre></div><h3 id="核心构建脚本"><a href="#核心构建脚本" class="header-anchor">#</a> 核心构建脚本</h3> <h4 id="_1-build-dynamic-modules-builder-js"><a href="#_1-build-dynamic-modules-builder-js" class="header-anchor">#</a> 1. <strong>build/dynamic-modules-builder.js</strong></h4> <ul><li>从后端获取商户的打包配置</li> <li>生成 <code>.dynamic-modules-rules.json</code> 文件</li> <li>支持 include/exclude/replace 三种规则</li></ul> <h4 id="_2-build-dynamic-materials-builder-js"><a href="#_2-build-dynamic-materials-builder-js" class="header-anchor">#</a> 2. <strong>build/dynamic-materials-builder.js</strong></h4> <ul><li>获取商户可用的装修物料组件</li> <li>动态生成 <code>.materials.js</code> 导出文件</li></ul> <h4 id="_3-dynamic-modules-config-replacepage-js"><a href="#_3-dynamic-modules-config-replacepage-js" class="header-anchor">#</a> 3. <strong>dynamic-modules-config/replacePage.js</strong></h4> <ul><li>执行页面文件的物理替换</li> <li>支持文件监听和自动替换</li></ul> <hr> <h2 id="🎯-不同商户的打包方案"><a href="#🎯-不同商户的打包方案" class="header-anchor">#</a> 🎯 不同商户的打包方案</h2> <h3 id="方案一-基础商户-标准版"><a href="#方案一-基础商户-标准版" class="header-anchor">#</a> 方案一：基础商户（标准版）</h3> <p><strong>适用场景</strong>: 普通电商商户，使用所有基础功能</p> <p><strong>模块配置</strong>:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;modules&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;$base&quot;</span><span class="token punctuation">,</span>           <span class="token comment">// 基础模块（必选）</span>
+    <span class="token string">&quot;$game&quot;</span><span class="token punctuation">,</span>           <span class="token comment">// 游戏市场（可选）</span>
+    <span class="token string">&quot;$promoter&quot;</span><span class="token punctuation">,</span>       <span class="token comment">// 分销员（可选）</span>
+    <span class="token string">&quot;$storeShop&quot;</span><span class="token punctuation">,</span>      <span class="token comment">// 门店自提（可选）</span>
+    <span class="token string">&quot;$tripGoods&quot;</span>       <span class="token comment">// 旅游产品（可选）</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>打包命令</strong>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 开发环境</span>
+<span class="token function">yarn</span> dev:weapp
+
+<span class="token comment"># 生产环境</span>
+<span class="token function">yarn</span> build:weapp
+</code></pre></div><p><strong>配置步骤</strong>:</p> <ol><li>修改 <code>src/ext.json</code> 中的 <code>businessNo</code> 为商户ID</li> <li>在 Iron 运营后台配置商户的模块（选择上述模块）</li> <li>执行打包命令</li></ol> <p><strong>包大小预估</strong>: 基础模块 + 2-3个可选模块，约 <strong>2-4MB</strong></p> <hr> <h3 id="方案二-定制商户-松本清-山本耀司"><a href="#方案二-定制商户-松本清-山本耀司" class="header-anchor">#</a> 方案二：定制商户（松本清/山本耀司）</h3> <p><strong>适用场景</strong>: 需要定制页面的高端品牌商户</p> <p><strong>定制内容</strong>:</p> <ul><li><p><strong>松本清 (matsukiyo)</strong>:</p> <ul><li>定制首页</li> <li>定制个人中心</li> <li>定制收藏页</li></ul></li> <li><p><strong>山本耀司 (yohjiyamamoto)</strong>:</p> <ul><li>定制商品详情页</li></ul></li></ul> <p><strong>模块配置</strong>:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;matsukiyo&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;custom&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;miniRules&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;include&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;merchantPage/matsukiyo/**/*&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;replace&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;pages/mine/index/index&quot;</span><span class="token operator">:</span> <span class="token string">&quot;merchantPage/matsukiyo/mine/index&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;pages/templateTab/index&quot;</span><span class="token operator">:</span> <span class="token string">&quot;merchantPage/matsukiyo/collection/index&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>打包流程</strong>:</p> <ol><li>在 <code>merchantRouterConfig.json</code> 添加商户配置</li> <li>在 <code>src/merchantPage/商户名/</code> 创建定制页面</li> <li>配置 replace 规则替换标准页面</li> <li>上传配置到 Iron 后台</li> <li>执行打包</li></ol> <p><strong>注意事项</strong>:</p> <ul><li>⚠️ 商户定制页面必须使用<strong>绝对路径</strong>引用</li> <li>⚠️ 替换页面会<strong>物理删除</strong>原页面文件夹并复制新文件</li></ul> <p><strong>包大小预估</strong>: 基础模块 + 定制模块，约 <strong>2.5-5MB</strong></p> <hr> <h3 id="方案三-功能扩展商户"><a href="#方案三-功能扩展商户" class="header-anchor">#</a> 方案三：功能扩展商户</h3> <p><strong>适用场景</strong>: 需要特殊业务功能的商户</p> <h4 id="示例配置"><a href="#示例配置" class="header-anchor">#</a> 示例配置：</h4> <p><strong>1. 日本国家馆（支付服务）</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;japanNationalPavilion&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;miniRules&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;include&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;packPageA/japanPayment/**/*&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;packPageA/tuition/**/*&quot;</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>2. 布里斯班机场（机场服务）</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;brisbaneAirport&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;miniRules&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;include&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;packCommon/airportService/**/*&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;merchantPage/brisbaneAirport/**/*&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;replace&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;pages/goods/index/index&quot;</span><span class="token operator">:</span> <span class="token string">&quot;merchantPage/brisbaneAirport/goods/index&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>3. HFT退税</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;htf&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;miniRules&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;include&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;packPageA/taxRefund/**/*&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;replace&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;pages/home/index&quot;</span><span class="token operator">:</span> <span class="token string">&quot;pages/homeHFT/index&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>包大小预估</strong>: 根据功能模块不同，约 <strong>2-6MB</strong></p> <hr> <h3 id="方案四-平台多商户模式"><a href="#方案四-平台多商户模式" class="header-anchor">#</a> 方案四：平台多商户模式</h3> <p><strong>适用场景</strong>: 类似天猫的平台商户模式</p> <p><strong>模块配置</strong>:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;modules&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;$base&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;$platform&quot;</span>  <span class="token comment">// 平台商户模块</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;miniRules&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;include&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;packPageA/shopPage/index&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;replace&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;packCommon/order/order/submit/delivery/index&quot;</span><span class="token operator">:</span> 
+      <span class="token string">&quot;packCommon/order/order/platformSubmit/index&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>特点</strong>:</p> <ul><li>支持多商家入驻</li> <li>替换订单提交流程为平台订单</li> <li>添加店铺页面</li></ul> <hr> <h3 id="方案五-特殊业态-餐厅-预约服务"><a href="#方案五-特殊业态-餐厅-预约服务" class="header-anchor">#</a> 方案五：特殊业态（餐厅/预约服务）</h3> <p><strong>适用场景</strong>: 餐厅堂食、预约服务等特殊业态</p> <p><strong>模块配置</strong>:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;modules&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;$base&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;$dineOrdering&quot;</span><span class="token punctuation">,</span>    <span class="token comment">// 堂食点餐</span>
+    <span class="token string">&quot;$reservation&quot;</span><span class="token punctuation">,</span>     <span class="token comment">// 虚拟服务预定</span>
+    <span class="token string">&quot;$restaurant&quot;</span>       <span class="token comment">// 餐厅预定</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>包含功能</strong>:</p> <ul><li>堂食点餐流程</li> <li>时间选择/预约</li> <li>特殊订单流程</li></ul> <hr> <h2 id="🚀-打包命令详解"><a href="#🚀-打包命令详解" class="header-anchor">#</a> 🚀 打包命令详解</h2> <h3 id="微信小程序"><a href="#微信小程序" class="header-anchor">#</a> 微信小程序</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 开发环境（带热更新）</span>
+<span class="token function">yarn</span> dev:weapp
+
+<span class="token comment"># 生产环境打包</span>
+<span class="token function">yarn</span> build:weapp
+
+<span class="token comment"># 生产环境打包（带体积分析）</span>
+<span class="token function">yarn</span> build:weapp:as
+
+<span class="token comment"># 测试环境打包（用于自动化测试）</span>
+<span class="token function">yarn</span> build:test-weapp
+</code></pre></div><h3 id="支付宝小程序"><a href="#支付宝小程序" class="header-anchor">#</a> 支付宝小程序</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 开发环境</span>
+<span class="token function">yarn</span> dev:alipay
+
+<span class="token comment"># 生产环境（包含所有插件）</span>
+<span class="token function">yarn</span> build:alipay:all
+
+<span class="token comment"># 单独打包订阅插件</span>
+<span class="token function">yarn</span> build:alipay:subscribe
+
+<span class="token comment"># 单独打包淘宝直播插件</span>
+<span class="token function">yarn</span> build:alipay:tblive
+
+<span class="token comment"># 打包所有插件组合</span>
+<span class="token function">yarn</span> build:alipay:allplugins
+</code></pre></div><h3 id="h5-移动端"><a href="#h5-移动端" class="header-anchor">#</a> H5 移动端</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 开发环境</span>
+<span class="token function">yarn</span> dev:h5
+
+<span class="token comment"># 生产环境</span>
+<span class="token function">yarn</span> build:h5
+</code></pre></div><hr> <h2 id="⚙️-环境配置"><a href="#⚙️-环境配置" class="header-anchor">#</a> ⚙️ 环境配置</h2> <h3 id="_1-ext-json-配置说明"><a href="#_1-ext-json-配置说明" class="header-anchor">#</a> 1. ext.json 配置说明</h3> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;extEnable&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;extAppid&quot;</span><span class="token operator">:</span> <span class="token string">&quot;小程序AppID&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;ext&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;backEndEnv&quot;</span><span class="token operator">:</span> <span class="token string">&quot;test|prod&quot;</span><span class="token punctuation">,</span>           <span class="token comment">// 后端环境</span>
+    <span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://dsapi.test.xyb2b.com&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;attr&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;wxAppid&quot;</span><span class="token operator">:</span> <span class="token string">&quot;微信AppID&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;aliAppid&quot;</span><span class="token operator">:</span> <span class="token string">&quot;支付宝AppID&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;imageBaseUrl&quot;</span><span class="token operator">:</span> <span class="token string">&quot;图片CDN地址&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;businessNo&quot;</span><span class="token operator">:</span> <span class="token number">30</span>                    <span class="token comment">// 商户ID（关键配置）</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;miniVersion&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2.2.2&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_2-动态模块规则-dynamic-modules-rules-json"><a href="#_2-动态模块规则-dynamic-modules-rules-json" class="header-anchor">#</a> 2. 动态模块规则（.dynamic-modules-rules.json）</h3> <p>该文件由构建脚本自动生成，示例：</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;include&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;pages/home/index&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;pages/goods/index/index&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;packPageA/groupSell/index&quot;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;exclude&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;replace&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;pages/mine/index/index&quot;</span><span class="token operator">:</span> <span class="token string">&quot;merchantPage/matsukiyo/mine/index&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><hr> <h2 id="📊-模块类型说明"><a href="#📊-模块类型说明" class="header-anchor">#</a> 📊 模块类型说明</h2> <h3 id="基础模块-base"><a href="#基础模块-base" class="header-anchor">#</a> 基础模块（$base）</h3> <p><strong>必选模块</strong>，包含核心电商功能：</p> <ul><li>首页、分类、购物车、我的</li> <li>商品详情、订单流程</li> <li>登录/注册、优惠券</li> <li>直播、活动</li></ul> <p><strong>页面数量</strong>: ~100+页面</p> <h3 id="可选功能模块"><a href="#可选功能模块" class="header-anchor">#</a> 可选功能模块</h3> <table><thead><tr><th>模块名</th> <th>说明</th> <th>页面数</th> <th>适用场景</th></tr></thead> <tbody><tr><td>$game</td> <td>游戏市场</td> <td>10+</td> <td>营销活动</td></tr> <tr><td>$promoter</td> <td>分销员</td> <td>15+</td> <td>社交电商</td></tr> <tr><td>$platform</td> <td>平台商户</td> <td>5+</td> <td>多商户平台</td></tr> <tr><td>$dineOrdering</td> <td>堂食点餐</td> <td>8+</td> <td>餐饮业务</td></tr> <tr><td>$storeShop</td> <td>门店自提</td> <td>6+</td> <td>O2O业务</td></tr> <tr><td>$tripGoods</td> <td>旅游产品</td> <td>12+</td> <td>旅游服务</td></tr> <tr><td>$reservation</td> <td>虚拟服务</td> <td>10+</td> <td>预约服务</td></tr> <tr><td>$restaurant</td> <td>餐厅预定</td> <td>10+</td> <td>餐厅业务</td></tr></tbody></table> <h3 id="定制模块-custom"><a href="#定制模块-custom" class="header-anchor">#</a> 定制模块（custom）</h3> <p>完全自定义的商户专属页面，支持：</p> <ul><li>页面替换（replace）</li> <li>新增页面（include）</li> <li>独立样式和逻辑</li></ul> <hr> <h2 id="🔧-开发新商户的步骤"><a href="#🔧-开发新商户的步骤" class="header-anchor">#</a> 🔧 开发新商户的步骤</h2> <h3 id="方式一-使用现有模块组合-推荐"><a href="#方式一-使用现有模块组合-推荐" class="header-anchor">#</a> 方式一：使用现有模块组合（推荐）</h3> <ol><li><p><strong>在 Iron 运营后台配置</strong></p> <ul><li>访问 <a href="http://iron.xyb2b.com.cn/app/threeSetting?fprojectId=35&amp;fappId=5075" target="_blank" rel="noopener noreferrer">Iron 工作台<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>选择对应商户</li> <li>在&quot;模块配置&quot;中勾选需要的模块</li></ul></li> <li><p><strong>修改本地 ext.json</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;ext&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;backEndEnv&quot;</span><span class="token operator">:</span> <span class="token string">&quot;test&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;attr&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;businessNo&quot;</span><span class="token operator">:</span> 新商户ID
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p><strong>执行打包</strong></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">yarn</span> build:weapp
+</code></pre></div></li></ol> <h3 id="方式二-创建定制商户"><a href="#方式二-创建定制商户" class="header-anchor">#</a> 方式二：创建定制商户</h3> <ol><li><p><strong>创建商户目录</strong></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> src/merchantPage/新商户名
+</code></pre></div></li> <li><p><strong>开发定制页面</strong></p> <ul><li>复制基础页面或从零开发</li> <li>⚠️ 使用绝对路径引用: <code>@/merchantPage/新商户名/...</code></li></ul></li> <li><p><strong>配置 merchantRouterConfig.json</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;新商户名&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;商户显示名称&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;custom&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;miniRules&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;include&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;merchantPage/新商户名/**/*&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;replace&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;pages/home/index&quot;</span><span class="token operator">:</span> <span class="token string">&quot;merchantPage/新商户名/home/index&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p><strong>上传到 Iron 后台</strong></p></li> <li><p><strong>本地测试</strong></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 开发模式（会有确认提示，防止代码覆盖）</span>
+<span class="token function">yarn</span> dev:weapp
+</code></pre></div></li> <li><p><strong>生产打包</strong></p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">yarn</span> build:weapp
+</code></pre></div></li></ol> <hr> <h2 id="📈-打包优化建议"><a href="#📈-打包优化建议" class="header-anchor">#</a> 📈 打包优化建议</h2> <h3 id="_1-按需加载模块"><a href="#_1-按需加载模块" class="header-anchor">#</a> 1. 按需加载模块</h3> <ul><li>只选择商户实际需要的功能模块</li> <li>避免打包未使用的分包</li></ul> <h3 id="_2-代码分割"><a href="#_2-代码分割" class="header-anchor">#</a> 2. 代码分割</h3> <ul><li>利用 Taro 的分包机制</li> <li>将低频功能放入独立分包</li></ul> <h3 id="_3-资源优化"><a href="#_3-资源优化" class="header-anchor">#</a> 3. 资源优化</h3> <ul><li>图片使用 CDN</li> <li>启用 tree-shaking（项目已配置）</li> <li>使用 Webpack Bundle Analyzer 分析体积</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">yarn</span> build:weapp:as  <span class="token comment"># 查看打包分析报告</span>
+</code></pre></div><h3 id="_4-缓存策略"><a href="#_4-缓存策略" class="header-anchor">#</a> 4. 缓存策略</h3> <ul><li>开发环境可开启 webpack cache（需要手动启用）</li> <li>生产环境关闭缓存确保构建稳定性</li></ul> <hr> <h2 id="⚠️-注意事项"><a href="#⚠️-注意事项" class="header-anchor">#</a> ⚠️ 注意事项</h2> <h3 id="_1-页面替换机制"><a href="#_1-页面替换机制" class="header-anchor">#</a> 1. 页面替换机制</h3> <ul><li><code>replace</code> 配置会<strong>物理删除</strong>目标文件夹</li> <li>开发时会有确认提示，生产环境直接执行</li> <li>建议在版本控制中保留原始页面备份</li></ul> <h3 id="_2-路径引用规范"><a href="#_2-路径引用规范" class="header-anchor">#</a> 2. 路径引用规范</h3> <ul><li>商户定制页面必须使用绝对路径</li> <li>正确：<code>import '@/merchantPage/matsukiyo/constants'</code></li> <li>错误：<code>import '../../constants'</code></li></ul> <h3 id="_3-环境变量"><a href="#_3-环境变量" class="header-anchor">#</a> 3. 环境变量</h3> <ul><li><code>CI_MP3RD_EXT_INFO</code>: CI/CD 环境的配置文件路径</li> <li><code>backEndEnv</code>: test 或 prod</li> <li><code>TARO_ENV</code>: weapp, alipay, h5</li></ul> <h3 id="_4-支付宝特殊处理"><a href="#_4-支付宝特殊处理" class="header-anchor">#</a> 4. 支付宝特殊处理</h3> <ul><li>需要去掉微信插件配置</li> <li>使用 <code>yalc</code> 本地引用 <code>@xy/tms-container-api-linkiebuy</code></li></ul> <h3 id="_5-新商户提审前准备"><a href="#_5-新商户提审前准备" class="header-anchor">#</a> 5. 新商户提审前准备</h3> <p>参考 README.md 中的&quot;新商户提审前置准备&quot;章节：</p> <ul><li>Iron 工作台数据同步</li> <li>域名配置</li> <li>隐私协议配置</li></ul> <hr> <h2 id="📚-相关文档"><a href="#📚-相关文档" class="header-anchor">#</a> 📚 相关文档</h2> <ul><li><a href="https://xingyun.feishu.cn/wiki/MMe1wgYH2infA7k3eL8cTqrwn0e" target="_blank" rel="noopener noreferrer">飞书：动态模块打包模块<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://xingyun.feishu.cn/wiki/BMlOwCfrVi4FdlkInRDcRBePnSe" target="_blank" rel="noopener noreferrer">飞书：商户定制开发方案<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://xingyun.feishu.cn/docx/QfiCdXP5soGkVFxp4AMc1IwSnHB" target="_blank" rel="noopener noreferrer">飞书：新商户提审常见问题<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://xingyun.feishu.cn/docx/FRjEdZiDHoPmOoxZylbcNEs4nwd" target="_blank" rel="noopener noreferrer">飞书：打包体积优化<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="http://gitlab.xyb2b.com.cn/fed/tms/materials" target="_blank" rel="noopener noreferrer">装修物料开发<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="http://iron.xyb2b.com.cn/app/threeSetting?fprojectId=35&amp;fappId=5075" target="_blank" rel="noopener noreferrer">Iron 运营后台<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <hr> <h2 id="🎨-打包流程示意图"><a href="#🎨-打包流程示意图" class="header-anchor">#</a> 🎨 打包流程示意图</h2> <div class="language- extra-class"><pre class="language-text"><code>┌─────────────────────────────────────────────────────────────┐
+│                     开始打包流程                              │
+└─────────────────┬───────────────────────────────────────────┘
+                  │
+                  ▼
+    ┌─────────────────────────┐
+    │  读取 ext.json          │
+    │  - businessNo (商户ID)  │
+    │  - backEndEnv (环境)    │
+    └─────────┬───────────────┘
+              │
+              ▼
+    ┌──────────────────────────────────┐
+    │  调用后端 API 获取模块配置        │
+    │  /getPackageConfig?sellerId=XX   │
+    └─────────┬────────────────────────┘
+              │
+              ▼
+    ┌─────────────────────────────────┐
+    │  生成 .dynamic-modules-rules.json│
+    │  - include: [...]               │
+    │  - exclude: [...]               │
+    │  - replace: {...}               │
+    └─────────┬───────────────────────┘
+              │
+              ▼
+    ┌─────────────────────────────┐
+    │  执行页面替换 (replacePage)  │
+    │  - 删除目标页面文件夹         │
+    │  - 复制源页面文件夹           │
+    │  - 重命名文件                │
+    └─────────┬───────────────────┘
+              │
+              ▼
+    ┌──────────────────────────────┐
+    │  获取装修物料配置             │
+    │  /querySellerOnlineDetails   │
+    └─────────┬────────────────────┘
+              │
+              ▼
+    ┌─────────────────────────┐
+    │  生成 .materials.js     │
+    │  (动态导出物料组件)      │
+    └─────────┬───────────────┘
+              │
+              ▼
+    ┌─────────────────────────┐
+    │  执行 Taro 构建         │
+    │  taro build --type XXX  │
+    └─────────┬───────────────┘
+              │
+              ▼
+    ┌─────────────────────────┐
+    │  输出到 dist/ 目录      │
+    │  - 小程序包             │
+    │  - 分包结构             │
+    └─────────────────────────┘
+</code></pre></div><hr> <h2 id="🔍-总结"><a href="#🔍-总结" class="header-anchor">#</a> 🔍 总结</h2> <p>本项目采用了<strong>高度灵活的模块化打包方案</strong>，能够满足不同商户的个性化需求：</p> <p>✅ <strong>标准商户</strong>: 通过模块组合快速上线<br>
+✅ <strong>定制商户</strong>: 支持深度页面定制和品牌化<br>
+✅ <strong>特殊业态</strong>: 灵活添加行业特定功能<br>
+✅ <strong>多端部署</strong>: 一套代码支持微信/支付宝/H5</p> <p><strong>核心优势</strong>:</p> <ol><li><strong>配置化</strong>: 通过配置文件控制打包内容</li> <li><strong>动态化</strong>: 运行时从后端获取配置</li> <li><strong>可扩展</strong>: 新增商户/模块无需修改核心代码</li> <li><strong>高复用</strong>: 基础模块跨商户共享</li></ol> <p><strong>适用场景</strong>:</p> <ul><li>SaaS 模式电商小程序</li> <li>多品牌/多商户统一管理</li> <li>快速定制化交付</li></ul></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:0;" data-v-b57cc07c data-v-7dd95ae2></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.153a178c.js" defer></script><script src="/assets/js/7.ee3859a0.js" defer></script><script src="/assets/js/2.b79aa31a.js" defer></script><script src="/assets/js/1.f68c1bc4.js" defer></script><script src="/assets/js/91.2e5af7d0.js" defer></script>
+  </body>
+</html>
